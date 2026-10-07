@@ -1,0 +1,1916 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "runs",
+  "engine": "tlc",
+  "function": "DeploymentRollout",
+  "symbol": "deployment rolling update",
+  "params": [
+    "n",
+    "sIn",
+    "uIn",
+    "created",
+    "oldSpec",
+    "newSpec",
+    "oR",
+    "oU",
+    "oT",
+    "nR",
+    "nU",
+    "nT",
+    "oSt",
+    "nSt",
+    "fails",
+    "action_taken"
+  ],
+  "signature": null,
+  "model": {
+    "hash": "3a56dd0b8f8a17e73cf57a0823342182dae68e30ae5eef71e21f45f91e97c48c"
+  },
+  "assuming": null,
+  "vectors": [
+    {
+      "id": "DeploymentRollout_controller_scales_new_up",
+      "region": null,
+      "constraints": [
+        "reaches controller_scales_new_up"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 0,
+        "nR": 0,
+        "nT": 0,
+        "nU": 0,
+        "oR": 1,
+        "oT": 0,
+        "oU": 0,
+        "fails": 0,
+        "n": 1,
+        "action_taken": "Controller",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 1,
+        "sIn": {
+          "k": "int",
+          "v": 0
+        },
+        "uIn": {
+          "k": "int",
+          "v": 1
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes controller_scales_new_up",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_controller_scales_old_down",
+      "region": null,
+      "constraints": [
+        "reaches controller_scales_old_down"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 1,
+        "nR": 1,
+        "nT": 0,
+        "nU": 0,
+        "oR": 1,
+        "oT": 0,
+        "oU": 0,
+        "fails": 0,
+        "n": 1,
+        "action_taken": "Controller",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 1,
+        "sIn": {
+          "k": "int",
+          "v": 1
+        },
+        "uIn": {
+          "k": "int",
+          "v": 0
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes controller_scales_old_down",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewCreate",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewReady",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewStatus",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_cleanup_unhealthy_old",
+      "region": null,
+      "constraints": [
+        "reaches cleanup_unhealthy_old"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 1,
+        "nR": 1,
+        "nT": 0,
+        "nU": 0,
+        "oR": 0,
+        "oT": 0,
+        "oU": 1,
+        "fails": 1,
+        "n": 1,
+        "action_taken": "Controller",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 0,
+        "sIn": {
+          "k": "int",
+          "v": 1
+        },
+        "uIn": {
+          "k": "int",
+          "v": 0
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes cleanup_unhealthy_old",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewCreate",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewReady",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewStatus",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldFail",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 1,
+            "fails": 1,
+            "n": 1,
+            "action_taken": "OldFail",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 1,
+            "fails": 1,
+            "n": 1,
+            "action_taken": "OldStatus",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 0,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 1,
+            "fails": 1,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 0,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_stale_status_above_spec_blocks_scale_down",
+      "region": null,
+      "constraints": [
+        "reaches stale_status_above_spec_blocks_scale_down"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 1,
+        "nR": 1,
+        "nT": 0,
+        "nU": 0,
+        "oR": 1,
+        "oT": 1,
+        "oU": 0,
+        "fails": 0,
+        "n": 2,
+        "action_taken": "OldDelete",
+        "oldSpec": 1,
+        "newSpec": 2,
+        "oSt": 2,
+        "sIn": {
+          "k": "int",
+          "v": 2
+        },
+        "uIn": {
+          "k": "int",
+          "v": 1
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes stale_status_above_spec_blocks_scale_down",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "Init",
+            "oldSpec": 2,
+            "newSpec": 0,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "Controller",
+            "oldSpec": 1,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewCreate",
+            "oldSpec": 1,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewReady",
+            "oldSpec": 1,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewStatus",
+            "oldSpec": 1,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldDelete",
+            "oldSpec": 1,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_availability_at_floor",
+      "region": null,
+      "constraints": [
+        "reaches availability_at_floor"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 1,
+        "nR": 1,
+        "nT": 0,
+        "nU": 0,
+        "oR": 0,
+        "oT": 1,
+        "oU": 0,
+        "fails": 0,
+        "n": 1,
+        "action_taken": "OldStatus",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 0,
+        "sIn": {
+          "k": "int",
+          "v": 1
+        },
+        "uIn": {
+          "k": "int",
+          "v": 0
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes availability_at_floor",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewCreate",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewReady",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewStatus",
+            "oldSpec": 1,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "OldDelete",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldStatus",
+          "args": {},
+          "expected": {
+            "nSt": 1,
+            "nR": 1,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "OldStatus",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 0,
+            "sIn": {
+              "k": "int",
+              "v": 1
+            },
+            "uIn": {
+              "k": "int",
+              "v": 0
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_active_pods_exceed_surge",
+      "region": null,
+      "constraints": [
+        "reaches active_pods_exceed_surge"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 0,
+        "nR": 0,
+        "nT": 0,
+        "nU": 1,
+        "oR": 0,
+        "oT": 1,
+        "oU": 0,
+        "fails": 0,
+        "n": 1,
+        "action_taken": "OldDelete",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 1,
+        "sIn": {
+          "k": "int",
+          "v": 0
+        },
+        "uIn": {
+          "k": "int",
+          "v": 1
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes active_pods_exceed_surge",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewCreate",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "OldDelete",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_all_pods_exceed_surge",
+      "region": null,
+      "constraints": [
+        "reaches all_pods_exceed_surge"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 0,
+        "nR": 0,
+        "nT": 0,
+        "nU": 1,
+        "oR": 0,
+        "oT": 1,
+        "oU": 0,
+        "fails": 0,
+        "n": 1,
+        "action_taken": "OldStatus",
+        "oldSpec": 0,
+        "newSpec": 1,
+        "oSt": 0,
+        "sIn": {
+          "k": "int",
+          "v": 0
+        },
+        "uIn": {
+          "k": "int",
+          "v": 1
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes all_pods_exceed_surge",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "OldDelete",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "NewCreate",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldStatus",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "OldStatus",
+            "oldSpec": 0,
+            "newSpec": 1,
+            "oSt": 0,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_rollout_complete_n2",
+      "region": null,
+      "constraints": [
+        "reaches rollout_complete_n2"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 0,
+        "nR": 2,
+        "nT": 0,
+        "nU": 0,
+        "oR": 0,
+        "oT": 0,
+        "oU": 0,
+        "fails": 0,
+        "n": 2,
+        "action_taken": "OldStatus",
+        "oldSpec": 0,
+        "newSpec": 2,
+        "oSt": 0,
+        "sIn": {
+          "k": "int",
+          "v": 2
+        },
+        "uIn": {
+          "k": "int",
+          "v": 2
+        },
+        "created": true
+      },
+      "why": "the shortest run that takes rollout_complete_n2",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "Init",
+            "oldSpec": 2,
+            "newSpec": 0,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "Controller",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 2,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "Controller",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldDelete",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldDelete",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 2,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldDelete",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 1,
+            "oR": 0,
+            "oT": 2,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewCreate",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewCreate",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 2,
+            "oR": 0,
+            "oT": 2,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewCreate",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 1,
+            "nT": 0,
+            "nU": 1,
+            "oR": 0,
+            "oT": 2,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewReady",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "NewReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 2,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 2,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "NewReady",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldGone",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 2,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 1,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldGone",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldGone",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 2,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldGone",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 2,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        },
+        {
+          "action": "OldStatus",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 2,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 2,
+            "action_taken": "OldStatus",
+            "oldSpec": 0,
+            "newSpec": 2,
+            "oSt": 0,
+            "sIn": {
+              "k": "int",
+              "v": 2
+            },
+            "uIn": {
+              "k": "int",
+              "v": 2
+            },
+            "created": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "DeploymentRollout_old_ready",
+      "region": null,
+      "constraints": [
+        "reaches old_ready"
+      ],
+      "input": {},
+      "expected": {
+        "nSt": 0,
+        "nR": 0,
+        "nT": 0,
+        "nU": 0,
+        "oR": 1,
+        "oT": 0,
+        "oU": 0,
+        "fails": 1,
+        "n": 1,
+        "action_taken": "OldReady",
+        "oldSpec": 1,
+        "newSpec": 0,
+        "oSt": 1,
+        "sIn": {
+          "k": "int",
+          "v": 0
+        },
+        "uIn": {
+          "k": "int",
+          "v": 1
+        },
+        "created": false
+      },
+      "why": "the shortest run that takes old_ready",
+      "steps": [
+        {
+          "action": null,
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 0,
+            "n": 1,
+            "action_taken": "Init",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "OldFail",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 0,
+            "oT": 0,
+            "oU": 1,
+            "fails": 1,
+            "n": 1,
+            "action_taken": "OldFail",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        },
+        {
+          "action": "OldReady",
+          "args": {},
+          "expected": {
+            "nSt": 0,
+            "nR": 0,
+            "nT": 0,
+            "nU": 0,
+            "oR": 1,
+            "oT": 0,
+            "oU": 0,
+            "fails": 1,
+            "n": 1,
+            "action_taken": "OldReady",
+            "oldSpec": 1,
+            "newSpec": 0,
+            "oSt": 1,
+            "sIn": {
+              "k": "int",
+              "v": 0
+            },
+            "uIn": {
+              "k": "int",
+              "v": 1
+            },
+            "created": false
+          }
+        }
+      ]
+    }
+  ],
+  "without": []
+}
