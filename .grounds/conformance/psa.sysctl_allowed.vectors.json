@@ -1,0 +1,16 @@
+{"format":"grounds-vectors/1","technique":"regions","engine":"imandrax","function":"sysctl_allowed","symbol":"Pod Security Admission policy","params":["m","s"],"signature":"int -> string -> bool","model":{"hash":"650c253042c625431ac3e72eb0ba60273290e8d5ee338812aa02e67e49e47b9e"},"assuming":null,"vectors":[
+{"id":"sysctl_allowed_r1","region":1,"constraints":["m <= 26"],"input":{"m":26,"s":""},"expected":false},
+{"id":"sysctl_allowed_r2","region":2,"constraints":["m >= 27","m <= 28"],"input":{"m":27,"s":""},"expected":false},
+{"id":"sysctl_allowed_r3","region":3,"constraints":["m >= 29","m <= 31"],"input":{"m":29,"s":""},"expected":false},
+{"id":"sysctl_allowed_r4","region":4,"constraints":["m >= 32","m <= 36"],"input":{"m":32,"s":""},"expected":false},
+{"id":"sysctl_allowed_r5","region":5,"constraints":["m >= 37"],"input":{"m":37,"s":""},"expected":false},
+{"id":"sysctl_allowed_c1","region":null,"constraints":[],"input":{"m":37,"s":"net/ipv4/tcp_syncookies"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c2","region":null,"constraints":[],"input":{"m":37,"s":"Kernel.shm_rmid_forced"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c3","region":null,"constraints":[],"input":{"m":37,"s":" net.ipv4.tcp_syncookies"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c4","region":null,"constraints":[],"input":{"m":36,"s":"net.ipv4.tcp_notsent_lowat"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c5","region":null,"constraints":[],"input":{"m":37,"s":"net.ipv4.tcp_notsent_lowat"},"expected":true,"why":"chosen"},
+{"id":"sysctl_allowed_c6","region":null,"constraints":[],"input":{"m":26,"s":"net.ipv4.ip_local_reserved_ports"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c7","region":null,"constraints":[],"input":{"m":27,"s":"net.ipv4.ip_local_reserved_ports"},"expected":true,"why":"chosen"},
+{"id":"sysctl_allowed_c8","region":null,"constraints":[],"input":{"m":37,"s":"kernel.msgmax"},"expected":false,"why":"chosen"},
+{"id":"sysctl_allowed_c9","region":null,"constraints":[],"input":{"m":37,"s":"net.ipv4.ip_forward"},"expected":false,"why":"chosen"}
+],"without":[]}

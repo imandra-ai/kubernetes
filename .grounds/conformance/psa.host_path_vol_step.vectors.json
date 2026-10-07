@@ -1,0 +1,6 @@
+{"format":"grounds-vectors/1","technique":"regions","engine":"imandrax","function":"host_path_vol_step","symbol":"Pod Security Admission policy","params":["v"],"signature":"volume -> bool","model":{"hash":"0792d4bf90ce0d82c9b432721eb9638b5b0fdcab0350def1d19e4af1d7056baa"},"assuming":null,"vectors":[
+{"id":"host_path_vol_step_r1","region":1,"constraints":["true"],"input":{"v":{"v_hostpath":false,"v_allowed":false,"v_other":false}},"expected":true},
+{"id":"host_path_vol_step_c1","region":null,"constraints":[],"input":{"v":{"v_hostpath":true,"v_allowed":true,"v_other":false}},"expected":false,"why":"chosen"},
+{"id":"host_path_vol_step_c2","region":null,"constraints":[],"input":{"v":{"v_hostpath":false,"v_allowed":false,"v_other":true}},"expected":true,"why":"chosen"},
+{"id":"host_path_vol_step_c3","region":null,"constraints":[],"input":{"v":{"v_hostpath":false,"v_allowed":false,"v_other":false}},"expected":true,"why":"chosen"}
+],"without":[]}

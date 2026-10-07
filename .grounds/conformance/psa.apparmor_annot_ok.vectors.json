@@ -1,0 +1,5 @@
+{"format":"grounds-vectors/1","technique":"regions","engine":"imandrax","function":"apparmor_annot_ok","symbol":"Pod Security Admission policy","params":["v"],"signature":"string -> bool","model":{"hash":"650c253042c625431ac3e72eb0ba60273290e8d5ee338812aa02e67e49e47b9e"},"assuming":null,"vectors":[
+{"id":"apparmor_annot_ok_r1","region":1,"constraints":["\"\" <> v","v <> \"runtime/default\""],"input":{"v":"A"},"expected":false},
+{"id":"apparmor_annot_ok_r2","region":2,"constraints":["v = \"runtime/default\"","\"\" <> v"],"input":{"v":"runtime/default"},"expected":true},
+{"id":"apparmor_annot_ok_r3","region":3,"constraints":["\"\" = v"],"input":{"v":""},"expected":true}
+],"without":[]}
