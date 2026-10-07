@@ -1,0 +1,1110 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "resolve_fenceposts",
+  "symbol": "deployment fenceposts",
+  "params": [
+    "max_surge",
+    "max_unavailable",
+    "desired"
+  ],
+  "signature": "ios option -> ios option -> int -> (int * int)",
+  "model": {
+    "hash": "82323b805e94e7e2242c308cd52c1b84f96c5075c1dec53406dd3c9b932e1f3b"
+  },
+  "assuming": null,
+  "vectors": [
+    {
+      "id": "resolve_fenceposts_r1",
+      "region": 1,
+      "constraints": [
+        "Is_a(None, max_surge)",
+        "Is_a(None, max_unavailable)"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "None"
+        },
+        "max_unavailable": {
+          "$c": "None"
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r2",
+      "region": 2,
+      "constraints": [
+        "Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "not Is_a(Int, Option.get max_unavailable)"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "None"
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r3",
+      "region": 3,
+      "constraints": [
+        "Is_a(None, max_unavailable)",
+        "not Is_a(None, max_surge)",
+        "not Is_a(Int, Option.get max_surge)"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "None"
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r4",
+      "region": 4,
+      "constraints": [
+        "Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_unavailable) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "None"
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r5",
+      "region": 5,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "not Is_a(Int, Option.get max_surge)",
+        "not Is_a(Int, Option.get max_unavailable)"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r6",
+      "region": 6,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "not Is_a(Int, Option.get max_surge)",
+        "Destruct(Int, 0, Option.get max_unavailable) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r7",
+      "region": 7,
+      "constraints": [
+        "Is_a(None, max_unavailable)",
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "Destruct(Int, 0, Option.get max_surge) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "None"
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r8",
+      "region": 8,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "not Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_surge) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r9",
+      "region": 9,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_surge) = 0",
+        "Destruct(Int, 0, Option.get max_unavailable) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r10",
+      "region": 10,
+      "constraints": [
+        "Is_a(None, max_unavailable)",
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "Destruct(Int, 0, Option.get max_surge) <> 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "None"
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r11",
+      "region": 11,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Destruct(Int, 0, Option.get max_surge) <> 0",
+        "not Is_a(Int, Option.get max_unavailable)"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                2
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r12",
+      "region": 12,
+      "constraints": [
+        "Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_unavailable) <> 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "None"
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r13",
+      "region": 13,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "not Is_a(Int, Option.get max_surge)",
+        "Destruct(Int, 0, Option.get max_unavailable) <> 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                2
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r14",
+      "region": 14,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_surge) <> 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                2
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_r15",
+      "region": 15,
+      "constraints": [
+        "not Is_a(None, max_surge)",
+        "Is_a(Int, Option.get max_surge)",
+        "not Is_a(None, max_unavailable)",
+        "Is_a(Int, Option.get max_unavailable)",
+        "Destruct(Int, 0, Option.get max_unavailable) <> 0",
+        "Destruct(Int, 0, Option.get max_surge) = 0"
+      ],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "resolve_fenceposts_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                25
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                25
+              ]
+            }
+          ]
+        },
+        "desired": 10
+      },
+      "expected": {
+        "$tuple": [
+          3,
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                10
+              ]
+            }
+          ]
+        },
+        "desired": 9
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "desired": 7
+      },
+      "expected": {
+        "$tuple": [
+          7,
+          7
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                33
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                33
+              ]
+            }
+          ]
+        },
+        "desired": 3
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                33
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                67
+              ]
+            }
+          ]
+        },
+        "desired": 100
+      },
+      "expected": {
+        "$tuple": [
+          33,
+          67
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "desired": 2147483647
+      },
+      "expected": {
+        "$tuple": [
+          1073741824,
+          1073741823
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                99
+              ]
+            }
+          ]
+        },
+        "desired": 2147483647
+      },
+      "expected": {
+        "$tuple": [
+          2147483647,
+          2126008810
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "desired": 2147483647
+      },
+      "expected": {
+        "$tuple": [
+          21474837,
+          21474836
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                3
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                30
+              ]
+            }
+          ]
+        },
+        "desired": 5
+      },
+      "expected": {
+        "$tuple": [
+          3,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                20
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "desired": 4
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "None",
+          "args": []
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                30
+              ]
+            }
+          ]
+        },
+        "desired": 3
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Int",
+              "args": [
+                7720
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "None",
+          "args": []
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          7720,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "None",
+          "args": []
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                38
+              ]
+            }
+          ]
+        },
+        "desired": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "resolve_fenceposts_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "max_surge": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                150
+              ]
+            }
+          ]
+        },
+        "max_unavailable": {
+          "$c": "Some",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                150
+              ]
+            }
+          ]
+        },
+        "desired": 3
+      },
+      "expected": {
+        "$tuple": [
+          5,
+          4
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}
