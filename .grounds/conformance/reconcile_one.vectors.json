@@ -1,0 +1,874 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "reconcile_one",
+  "symbol": "deployment rolling update",
+  "params": [
+    "d",
+    "mu",
+    "nr",
+    "na",
+    "r",
+    "a"
+  ],
+  "signature": "int -> int -> int -> int -> int -> int -> (bool * int)",
+  "model": {
+    "hash": "3ea248b2e97aeb32d105c50663234faabce97f41adb38b554347bdc9ad42b3c9"
+  },
+  "assuming": "dom1",
+  "vectors": [
+    {
+      "id": "reconcile_one_r1",
+      "region": 1,
+      "constraints": [
+        "r = 0",
+        "d >= 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 0,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r2",
+      "region": 2,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "(if na + (-1) * d <= (-1) * a then na + r + (-1) * d else r + (-1) * a)\n<= (-1)"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r3",
+      "region": 3,
+      "constraints": [
+        "r <> 0",
+        "d <> 0",
+        "mu <= d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d <= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r4",
+      "region": 4,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu > d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "(if na <= (-1) * a then na + r else r + (-1) * a) <= (-1)"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r5",
+      "region": 5,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu <= d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d >= 1",
+        "(if mu + na + (-1) * d <= (-1) * a then mu + na + r + (-1) * d\n else r + (-1) * a)\n<= (-1)"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 1,
+        "r": 1,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r6",
+      "region": 6,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu <= d",
+        "na + a <= d + (-1) * mu",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d >= 1",
+        "(if mu + na + (-1) * d <= (-1) * a then mu + na + r + (-1) * d\n else r + (-1) * a)\n>= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r7",
+      "region": 7,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu <= d",
+        "na + a > d + (-1) * mu",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d >= 1",
+        "(if mu + na + (-1) * d <= (-1) * a then mu + na + r + (-1) * d\n else r + (-1) * a)\n>= 0",
+        "r\n+ (-1)\n  * (if (-1) * d + mu + na <= (-1) * a then r + (-1) * d + mu + na\n     else (r + (-1) * a))\n= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 2,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r8",
+      "region": 8,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu > d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "na + a <= 0",
+        "(if na <= (-1) * a then na + r else r + (-1) * a) >= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r9",
+      "region": 9,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu > d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "na + a >= 1",
+        "(if na <= (-1) * a then na + r else r + (-1) * a) >= 0",
+        "r + (-1) * (if na <= (-1) * a then r + na else (r + (-1) * a)) = 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 1,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r10",
+      "region": 10,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "na + a <= d",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "(if na + (-1) * d <= (-1) * a then na + r + (-1) * d else r + (-1) * a) >= 0"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r11",
+      "region": 11,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "na + a > d",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "(if na + (-1) * d <= (-1) * a then na + r + (-1) * d else r + (-1) * a) >= 0",
+        "r\n+ (-1)\n  * (if (-1) * d + na <= (-1) * a then r + (-1) * d + na else (r + (-1) * a))\n= 0"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 1,
+        "r": 1,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r12",
+      "region": 12,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu <= d",
+        "na + a > d + (-1) * mu",
+        "r\n+ (-1)\n  * (if (-1) * d + mu + na <= (-1) * a then r + (-1) * d + mu + na\n     else (r + (-1) * a))\n<> 0",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d >= 1",
+        "(if mu + na + (-1) * d <= (-1) * a then mu + na + r + (-1) * d\n else r + (-1) * a)\n>= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 1,
+        "r": 2,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r13",
+      "region": 13,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "d <> 0",
+        "mu > d",
+        "r + (-1) * (if na <= (-1) * a then r + na else (r + (-1) * a)) <> 0",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "na + a >= 1",
+        "(if na <= (-1) * a then na + r else r + (-1) * a) >= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r14",
+      "region": 14,
+      "constraints": [
+        "r <> 0",
+        "r <> a",
+        "na + a > d",
+        "r\n+ (-1)\n  * (if (-1) * d + na <= (-1) * a then r + (-1) * d + na else (r + (-1) * a))\n<> 0",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "(if na + (-1) * d <= (-1) * a then na + r + (-1) * d else r + (-1) * a) >= 0"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r15",
+      "region": 15,
+      "constraints": [
+        "r = a",
+        "r <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a > d + (-1) * mu",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "mu + na + r + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          1
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r16",
+      "region": 16,
+      "constraints": [
+        "r = a",
+        "r <> 0",
+        "d <> 0",
+        "mu > d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1",
+        "na + a >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_r17",
+      "region": 17,
+      "constraints": [
+        "r = a",
+        "r <> 0",
+        "na + a > d",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a >= 0",
+        "r >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 1,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      }
+    },
+    {
+      "id": "reconcile_one_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 10,
+        "a": 10
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          10
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r": 10,
+        "a": 9
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          8
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 2,
+        "na": 0,
+        "r": 8,
+        "a": 8
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          8
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r": 3,
+        "a": 3
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 0,
+        "mu": 5,
+        "nr": 0,
+        "na": 0,
+        "r": 3,
+        "a": 1
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 2,
+        "mu": 5,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 2,
+        "mu": 5,
+        "nr": 0,
+        "na": 0,
+        "r": 2,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 3,
+        "mu": 0,
+        "nr": 1,
+        "na": 0,
+        "r": 3,
+        "a": 3
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 3,
+        "mu": 0,
+        "nr": 1,
+        "na": 1,
+        "r": 3,
+        "a": 3
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 3,
+        "mu": 1,
+        "nr": 5,
+        "na": 5,
+        "r": 2,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 3,
+        "mu": 1,
+        "nr": 5,
+        "na": 0,
+        "r": 2,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 5,
+        "mu": 1,
+        "nr": 2,
+        "na": 3,
+        "r": 3,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 5,
+        "mu": 1,
+        "nr": 3,
+        "na": 3,
+        "r": 1,
+        "a": 2
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 13,
+        "na": 0,
+        "r": 0,
+        "a": 0
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 5,
+        "na": 0,
+        "r": 8,
+        "a": 7
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          8
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "reconcile_one_c16",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 5,
+        "na": 4,
+        "r": 8,
+        "a": 7
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          4
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}

@@ -1,0 +1,1740 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "scale_down2u",
+  "symbol": "deployment rolling update",
+  "params": [
+    "d",
+    "mu",
+    "nr",
+    "na",
+    "r1",
+    "a1",
+    "r2",
+    "a2"
+  ],
+  "signature": "int -> int -> int -> int -> int -> int -> int -> int -> (int * int list)",
+  "model": {
+    "hash": "3ea248b2e97aeb32d105c50663234faabce97f41adb38b554347bdc9ad42b3c9"
+  },
+  "assuming": "dom2",
+  "vectors": [
+    {
+      "id": "scale_down2u_r1",
+      "region": 1,
+      "constraints": [
+        "na + a1 + a2 <= d",
+        "d = 0",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "r1 >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r2",
+      "region": 2,
+      "constraints": [
+        "na + a1 + a2 > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r2 = 0",
+        "r1 = 0",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r3",
+      "region": 3,
+      "constraints": [
+        "na + a1 + a2 > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "d = 0",
+        "r1 = 0",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r4",
+      "region": 4,
+      "constraints": [
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 <= d + (-1) * mu",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "r1 >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r5",
+      "region": 5,
+      "constraints": [
+        "d <> 0",
+        "mu > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 = 0",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r6",
+      "region": 6,
+      "constraints": [
+        "d <> 0",
+        "mu > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "r1 = 0",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r7",
+      "region": 7,
+      "constraints": [
+        "d <> 0",
+        "mu > d",
+        "d >= 1",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "r1 >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "na + a1 + a2 <= 0"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r8",
+      "region": 8,
+      "constraints": [
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 = 0",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r9",
+      "region": 9,
+      "constraints": [
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "r1 = 0",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r10",
+      "region": 10,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= a1 + a2 + na + (-1) * d then r1 else a1 + a2 + na + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r11",
+      "region": 11,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= a1 + a2 + na + (-1) * d then r1 else a1 + a2 + na + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "d = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r12",
+      "region": 12,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= na + a1 + a2 + (-1) * d then r1 else na + a1 + a2 + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r13",
+      "region": 13,
+      "constraints": [
+        "r2 <> 0",
+        "na + a1 + a2 > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r1 = 0",
+        "r2 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r14",
+      "region": 14,
+      "constraints": [
+        "r2 <> 0",
+        "na + a1 + a2 > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "d = 0",
+        "r1 = 0",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r15",
+      "region": 15,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= a1 + a2 + na then r1 else a1 + a2 + na) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 2,
+        "r2": 1,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r16",
+      "region": 16,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= a1 + a2 + na then r1 else a1 + a2 + na) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 2,
+        "r2": 1,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r17",
+      "region": 17,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= na + a1 + a2 then r1 else na + a1 + a2) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 2,
+        "r2": 1,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r18",
+      "region": 18,
+      "constraints": [
+        "r2 <> 0",
+        "d <> 0",
+        "mu > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r1 = 0",
+        "r2 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r19",
+      "region": 19,
+      "constraints": [
+        "r2 <> 0",
+        "d <> 0",
+        "mu > d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "r1 = 0",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r20",
+      "region": 20,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= a1 + a2 + na + (-1) * d + mu then r1\n else a1 + a2 + na + (-1) * d + mu)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r21",
+      "region": 21,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= a1 + a2 + na + (-1) * d + mu then r1\n else a1 + a2 + na + (-1) * d + mu)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r22",
+      "region": 22,
+      "constraints": [
+        "r2 <> 0",
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= mu + na + a1 + a2 + (-1) * d then r1\n else mu + na + a1 + a2 + (-1) * d)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 >= 1",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 1,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r23",
+      "region": 23,
+      "constraints": [
+        "r2 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r1 = 0",
+        "r2 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r24",
+      "region": 24,
+      "constraints": [
+        "r2 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 1",
+        "a2 >= 0",
+        "r1 = 0",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 0,
+        "a1": 0,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r25",
+      "region": 25,
+      "constraints": [
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= a1 + a2 + na + (-1) * d then r1 else a1 + a2 + na + (-1) * d)\n>= na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 2,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r26",
+      "region": 26,
+      "constraints": [
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= a1 + a2 + na + (-1) * d then r1 else a1 + a2 + na + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r27",
+      "region": 27,
+      "constraints": [
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= a1 + a2 + na + (-1) * d then r1 else a1 + a2 + na + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "d = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r28",
+      "region": 28,
+      "constraints": [
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= na + a1 + a2 + (-1) * d then r1 else na + a1 + a2 + (-1) * d)\n>= na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 2,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r29",
+      "region": 29,
+      "constraints": [
+        "r1 <> 0",
+        "na + a1 + a2 > d",
+        "(if r1 <= na + a1 + a2 + (-1) * d then r1 else na + a1 + a2 + (-1) * d)\n< na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "d = 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "na + a1 + a2 + (-1) * d >= 1"
+      ],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r30",
+      "region": 30,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= a1 + a2 + na then r1 else a1 + a2 + na) >= na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r31",
+      "region": 31,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= a1 + a2 + na then r1 else a1 + a2 + na) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r32",
+      "region": 32,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= a1 + a2 + na then r1 else a1 + a2 + na) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r33",
+      "region": 33,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= na + a1 + a2 then r1 else na + a1 + a2) >= na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 1,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r34",
+      "region": 34,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu > d",
+        "(if r1 <= na + a1 + a2 then r1 else na + a1 + a2) < na + a1 + a2",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "d >= 1",
+        "na + a1 + a2 >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r35",
+      "region": 35,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= a1 + a2 + na + (-1) * d + mu then r1\n else a1 + a2 + na + (-1) * d + mu)\n>= mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 2,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r36",
+      "region": 36,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= a1 + a2 + na + (-1) * d + mu then r1\n else a1 + a2 + na + (-1) * d + mu)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 3,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r37",
+      "region": 37,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= a1 + a2 + na + (-1) * d + mu then r1\n else a1 + a2 + na + (-1) * d + mu)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 = 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 3,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r38",
+      "region": 38,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= mu + na + a1 + a2 + (-1) * d then r1\n else mu + na + a1 + a2 + (-1) * d)\n>= mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "r2 >= 0",
+        "a2 >= 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 2,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_r39",
+      "region": 39,
+      "constraints": [
+        "r1 <> 0",
+        "d <> 0",
+        "mu <= d",
+        "na + a1 + a2 > d + (-1) * mu",
+        "(if r1 <= mu + na + a1 + a2 + (-1) * d then r1\n else mu + na + a1 + a2 + (-1) * d)\n< mu + na + a1 + a2 + (-1) * d",
+        "mu >= 0",
+        "nr >= 0",
+        "na >= 0",
+        "a1 >= 0",
+        "a2 >= 0",
+        "r2 = 0",
+        "r1 >= 1",
+        "mu + na + a1 + a2 + (-1) * d >= 1",
+        "d >= 1"
+      ],
+      "input": {
+        "d": 1,
+        "mu": 0,
+        "nr": 0,
+        "na": 3,
+        "r1": 1,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "scale_down2u_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 10,
+        "a1": 10,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 10,
+        "a1": 10,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          2,
+          [
+            8,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 10,
+        "a1": 8,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 0,
+        "na": 10,
+        "r1": 0,
+        "a1": 0,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 10,
+        "mu": 2,
+        "nr": 0,
+        "na": 0,
+        "r1": 10,
+        "a1": 1,
+        "r2": 0,
+        "a2": 0
+      },
+      "expected": {
+        "$tuple": [
+          0,
+          [
+            10,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 0,
+        "mu": 0,
+        "nr": 0,
+        "na": 0,
+        "r1": 2,
+        "a1": 2,
+        "r2": 3,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          5,
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 4,
+        "mu": 9,
+        "nr": 0,
+        "na": 0,
+        "r1": 2,
+        "a1": 2,
+        "r2": 3,
+        "a2": 1
+      },
+      "expected": {
+        "$tuple": [
+          3,
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 4,
+        "mu": 1,
+        "nr": 4,
+        "na": 4,
+        "r1": 2,
+        "a1": 2,
+        "r2": 3,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          5,
+          [
+            0,
+            0
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 4,
+        "mu": 1,
+        "nr": 2,
+        "na": 0,
+        "r1": 1,
+        "a1": 3,
+        "r2": 3,
+        "a2": 3
+      },
+      "expected": {
+        "$tuple": [
+          3,
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "scale_down2u_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "d": 5,
+        "mu": 1,
+        "nr": 3,
+        "na": 1,
+        "r1": 2,
+        "a1": 2,
+        "r2": 1,
+        "a2": 2
+      },
+      "expected": {
+        "$tuple": [
+          1,
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}
