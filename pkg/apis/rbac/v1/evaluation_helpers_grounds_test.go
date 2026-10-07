@@ -42,9 +42,9 @@ type groundsVectorFile struct {
 	Vectors  []groundsVector `json:"vectors"`
 }
 
-func loadGroundsVectors(t *testing.T, name string) groundsVectorFile {
+func loadGroundsVectors(t *testing.T, name, file string) groundsVectorFile {
 	t.Helper()
-	data, err := os.ReadFile(filepath.Join(groundsVectorsDir, name+".vectors.json"))
+	data, err := os.ReadFile(filepath.Join(groundsVectorsDir, file))
 	if err != nil {
 		t.Fatalf("reading vectors for %s: %v", name, err)
 	}
@@ -94,29 +94,33 @@ func groundsStrings(t *testing.T, raw json.RawMessage) []string {
 }
 
 func TestGroundsConformance(t *testing.T) {
-	matchers := map[string]func(t *testing.T, in map[string]json.RawMessage) bool{
-		"verb_matches": func(t *testing.T, in map[string]json.RawMessage) bool {
+	matchers := []struct {
+		name string
+		file string
+		call func(t *testing.T, in map[string]json.RawMessage) bool
+	}{
+		{"verb_matches", "verb_matches.vectors.json", func(t *testing.T, in map[string]json.RawMessage) bool {
 			return VerbMatches(&rbacv1.PolicyRule{Verbs: groundsStrings(t, in["verbs"])}, groundsString(t, in["v"]))
-		},
-		"api_group_matches": func(t *testing.T, in map[string]json.RawMessage) bool {
+		}},
+		{"api_group_matches", "api_group_matches.vectors.json", func(t *testing.T, in map[string]json.RawMessage) bool {
 			return APIGroupMatches(&rbacv1.PolicyRule{APIGroups: groundsStrings(t, in["groups"])}, groundsString(t, in["g"]))
-		},
-		"resource_matches": func(t *testing.T, in map[string]json.RawMessage) bool {
+		}},
+		{"resource_matches", "resource_matches.vectors.json", func(t *testing.T, in map[string]json.RawMessage) bool {
 			return ResourceMatches(&rbacv1.PolicyRule{Resources: groundsStrings(t, in["rs"])}, groundsString(t, in["combined"]), groundsString(t, in["sub"]))
-		},
-		"resource_name_matches": func(t *testing.T, in map[string]json.RawMessage) bool {
+		}},
+		{"resource_name_matches", "resource_name_matches.vectors.json", func(t *testing.T, in map[string]json.RawMessage) bool {
 			return ResourceNameMatches(&rbacv1.PolicyRule{ResourceNames: groundsStrings(t, in["names"])}, groundsString(t, in["n"]))
-		},
-		"non_resource_url_matches": func(t *testing.T, in map[string]json.RawMessage) bool {
+		}},
+		{"non_resource_url_matches", "non_resource_url_matches.vectors.json", func(t *testing.T, in map[string]json.RawMessage) bool {
 			return NonResourceURLMatches(&rbacv1.PolicyRule{NonResourceURLs: groundsStrings(t, in["urls"])}, groundsString(t, in["url"]))
-		},
+		}},
 	}
-	for name, call := range matchers {
-		f := loadGroundsVectors(t, name)
+	for _, m := range matchers {
+		f := loadGroundsVectors(t, m.name, m.file)
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
-				if got := call(t, v.Input); got != v.Expected {
-					t.Errorf("%s(%s): code returned %v, model expects %v", name, groundsInputJSON(v.Input), got, v.Expected)
+				if got := m.call(t, v.Input); got != v.Expected {
+					t.Errorf("%s(%s): code returned %v, model expects %v", m.name, groundsInputJSON(v.Input), got, v.Expected)
 				}
 			})
 		}
