@@ -1,0 +1,1099 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "mr_minutely",
+  "symbol": "cronjob sync step",
+  "params": [
+    "base",
+    "now",
+    "deadline"
+  ],
+  "signature": "int -> int -> int option -> mrst",
+  "model": {
+    "hash": "140a4ee60fe7aba5dfbbda6461ddf0a36bc8aee2011a33381cb10b353af1d1bf"
+  },
+  "assuming": null,
+  "vectors": [
+    {
+      "id": "mr_minutely_r1",
+      "region": 1,
+      "constraints": [
+        "not Is_a(Some, deadline)",
+        "base + (-1) * (base mod 60) > (-60) + now"
+      ],
+      "input": {
+        "base": 0,
+        "now": 59,
+        "deadline": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r2",
+      "region": 2,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline <= base",
+        "base + (-1) * (base mod 60) > (-60) + now"
+      ],
+      "input": {
+        "base": 0,
+        "now": 0,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            0
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r3",
+      "region": 3,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline > base",
+        "(-1) * (now + (-1) * Option.get deadline mod 60) + (-1) * Option.get deadline\n>= (-59)"
+      ],
+      "input": {
+        "base": -1,
+        "now": 0,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            0
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r4",
+      "region": 4,
+      "constraints": [
+        "not Is_a(Some, deadline)",
+        "base + (-1) * (base mod 60) <= (-60) + now",
+        "base + (-1) * (base + (-1) * (base mod 60) mod 60) + (-1) * (base mod 60)\n> (-120) + now"
+      ],
+      "input": {
+        "base": 0,
+        "now": 60,
+        "deadline": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r5",
+      "region": 5,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline <= base",
+        "base + (-1) * (base mod 60) <= (-60) + now",
+        "base + (-1) * (base + (-1) * (base mod 60) mod 60) + (-1) * (base mod 60)\n> (-120) + now"
+      ],
+      "input": {
+        "base": 0,
+        "now": 60,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r6",
+      "region": 6,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline > base",
+        "(-1) * (now + (-1) * Option.get deadline mod 60) + (-1) * Option.get deadline\n<= (-60)",
+        "(-1)\n* (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n   + (-1) * Option.get deadline mod 60)\n+ (-1) * (now + (-1) * Option.get deadline mod 60)\n+ (-1) * Option.get deadline >= (-119)"
+      ],
+      "input": {
+        "base": -61,
+        "now": 0,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        }
+      },
+      "expected": {
+        "earliest": -60,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            0
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r7",
+      "region": 7,
+      "constraints": [
+        "not Is_a(Some, deadline)",
+        "base + (-1) * (base mod 60) <= (-60) + now",
+        "base + (-1) * (base + (-1) * (base mod 60) mod 60) + (-1) * (base mod 60)\n<= (-120) + now",
+        "now + (-1) * (now mod 60)\n> 60 + base\n  + (60 + (-1) * (base + (-1) * (base mod 60) mod 60))\n    * ((-1)\n       + ((-60) + now + (base mod 60) + (-1) * base)\n         / (60 + (-1) * (base + (-1) * (base mod 60) mod 60)))\n  + (-1) * (base mod 60)",
+        "((-60) + now + (base mod 60) + (-1) * base)\n/ (60 + (-1) * (base + (-1) * (base mod 60) mod 60)) >= 0",
+        "((-60) + now + (base mod 60) + (-1) * base)\n/ (60 + (-1) * (base + (-1) * (base mod 60) mod 60)) <= 99"
+      ],
+      "input": {
+        "base": 107760,
+        "now": 113760,
+        "deadline": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "earliest": 107760,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            113760
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r8",
+      "region": 8,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline <= base",
+        "base + (-1) * (base mod 60) <= (-60) + now",
+        "base + (-1) * (base + (-1) * (base mod 60) mod 60) + (-1) * (base mod 60)\n<= (-120) + now",
+        "now + (-1) * (now mod 60)\n> 60 + base\n  + (60 + (-1) * (base + (-1) * (base mod 60) mod 60))\n    * ((-1)\n       + ((-60) + now + (base mod 60) + (-1) * base)\n         / (60 + (-1) * (base + (-1) * (base mod 60) mod 60)))\n  + (-1) * (base mod 60)",
+        "((-60) + now + (base mod 60) + (-1) * base)\n/ (60 + (-1) * (base + (-1) * (base mod 60) mod 60)) >= 0",
+        "((-60) + now + (base mod 60) + (-1) * base)\n/ (60 + (-1) * (base + (-1) * (base mod 60) mod 60)) <= 99"
+      ],
+      "input": {
+        "base": 107760,
+        "now": 113760,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            6000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 107760,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            113760
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r9",
+      "region": 9,
+      "constraints": [
+        "not Is_a(Some, deadline)",
+        "base + (-1) * (base mod 60) <= (-60) + now",
+        "base + (-1) * (base + (-1) * (base mod 60) mod 60) + (-1) * (base mod 60)\n<= (-120) + now",
+        "now + (-1) * (now mod 60)\n> 60 + base\n  + (60 + (-1) * (base + (-1) * (base mod 60) mod 60))\n    * ((-1)\n       + ((-60) + now + (base mod 60) + (-1) * base)\n         / (60 + (-1) * (base + (-1) * (base mod 60) mod 60)))\n  + (-1) * (base mod 60)",
+        "((-60) + now + (base mod 60) + (-1) * base)\n/ (60 + (-1) * (base + (-1) * (base mod 60) mod 60)) >= 100"
+      ],
+      "input": {
+        "base": 531300,
+        "now": 668340,
+        "deadline": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "earliest": 531300,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            668340
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r12",
+      "region": 12,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline > base",
+        "(-1) * (now mod 60)\n> 60\n  + (60\n     + (-1)\n       * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n          + (-1) * Option.get deadline mod 60))\n    * ((-1)\n       + ((-60) + Option.get deadline\n          + (now + (-1) * Option.get deadline mod 60))\n         / (60\n            + (-1)\n              * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n                 + (-1) * Option.get deadline mod 60)))\n  + (-1) * (now + (-1) * Option.get deadline mod 60)\n  + (-1) * Option.get deadline",
+        "(-1) * (now + (-1) * Option.get deadline mod 60) + (-1) * Option.get deadline\n<= (-60)",
+        "((-60) + Option.get deadline + (now + (-1) * Option.get deadline mod 60))\n/ (60\n   + (-1)\n     * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n        + (-1) * Option.get deadline mod 60))\n>= 0",
+        "((-60) + Option.get deadline + (now + (-1) * Option.get deadline mod 60))\n/ (60\n   + (-1)\n     * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n        + (-1) * Option.get deadline mod 60))\n<= 99",
+        "(-1)\n* (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n   + (-1) * Option.get deadline mod 60)\n+ (-1) * (now + (-1) * Option.get deadline mod 60)\n+ (-1) * Option.get deadline <= (-120)"
+      ],
+      "input": {
+        "base": 140219,
+        "now": 146220,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            6000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 140220,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            146220
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_r14",
+      "region": 14,
+      "constraints": [
+        "Is_a(Some, deadline)",
+        "now + (-1) * Option.get deadline > base",
+        "(-1) * (now mod 60)\n> 60\n  + (60\n     + (-1)\n       * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n          + (-1) * Option.get deadline mod 60))\n    * ((-1)\n       + ((-60) + Option.get deadline\n          + (now + (-1) * Option.get deadline mod 60))\n         / (60\n            + (-1)\n              * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n                 + (-1) * Option.get deadline mod 60)))\n  + (-1) * (now + (-1) * Option.get deadline mod 60)\n  + (-1) * Option.get deadline",
+        "(-1) * (now + (-1) * Option.get deadline mod 60) + (-1) * Option.get deadline\n<= (-60)",
+        "((-60) + Option.get deadline + (now + (-1) * Option.get deadline mod 60))\n/ (60\n   + (-1)\n     * (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n        + (-1) * Option.get deadline mod 60))\n>= 100",
+        "(-1)\n* (now + (-1) * (now + (-1) * Option.get deadline mod 60)\n   + (-1) * Option.get deadline mod 60)\n+ (-1) * (now + (-1) * Option.get deadline mod 60)\n+ (-1) * Option.get deadline <= (-120)"
+      ],
+      "input": {
+        "base": -33721,
+        "now": 74160,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            107880
+          ]
+        }
+      },
+      "expected": {
+        "earliest": -33720,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            74160
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      }
+    },
+    {
+      "id": "mr_minutely_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6059,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            7000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6000
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6060,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            7000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6060
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6061,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            7000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6060
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6059,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6000
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6060,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6060
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6119,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6060
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6120,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6120
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6200,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            6100
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 100,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6180
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 6219,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            6100
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 119,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            6180
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 1000,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            200
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 800,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            960
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 1000,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            1000
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            960
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 1000,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            999
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 1,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            960
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 1000,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            1001
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            960
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 59,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 60,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c16",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 119,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c17",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 120,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            120
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c18",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 30,
+        "now": 119,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 30,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c19",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 30,
+        "now": 120,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 30,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            120
+          ]
+        },
+        "missed": {
+          "$c": "FewMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c20",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": -61,
+        "now": 0,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        }
+      },
+      "expected": {
+        "earliest": -60,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            0
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c21",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 120,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            0
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 120,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c22",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 120,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            60
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 60,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            120
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c23",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 150,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            30
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 120,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c24",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 149,
+        "deadline": {
+          "$c": "Some",
+          "args": [
+            30
+          ]
+        }
+      },
+      "expected": {
+        "earliest": 119,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            120
+          ]
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c25",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 6000,
+        "now": 100,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 6000,
+        "recent": {
+          "$c": "None"
+        },
+        "missed": {
+          "$c": "NoneMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "mr_minutely_c26",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "base": 0,
+        "now": 600000,
+        "deadline": {
+          "$c": "None",
+          "args": []
+        }
+      },
+      "expected": {
+        "earliest": 0,
+        "recent": {
+          "$c": "Some",
+          "args": [
+            600000
+          ]
+        },
+        "missed": {
+          "$c": "ManyMissed"
+        },
+        "err": false
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": [
+    {
+      "region": 10,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 11,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 13,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    }
+  ]
+}

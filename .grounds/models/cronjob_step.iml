@@ -1,0 +1,223 @@
+(* One syncCronJob step (pkg/controller/cronjob) over symbolic state.
+   Times are integer seconds. The cron schedule is abstracted as
+   next_fire t (least fire > t, = robfig Schedule.Next) and prev_fire t
+   (greatest fire <= t); the potentialEarliest loop in mostRecentScheduleTime
+   is "prev_fire now if > potentialEarliest, else none". *)
+
+type sched =
+  | Every of int * int          (* period p >= 1, phase ph: fires at ph + k*p *)
+  | Pair of int * int * int     (* period p, phase ph, offset a (0<a<p): fires at ph+k*p and ph+k*p+a *)
+
+let sched_ok (s : sched) : bool =
+  match s with
+  | Every (p, _) -> p >= 1
+  | Pair (p, _, a) -> p >= 2 && a > 0 && a < p
+
+let period_start (p : int) (ph : int) (t : int) : int = t - ((t - ph) mod p)
+
+let prev_fire (s : sched) (t : int) : int =
+  match s with
+  | Every (p, ph) -> period_start p ph t
+  | Pair (p, ph, a) ->
+    let b = period_start p ph t in
+    if t - b >= a then b + a else b
+
+let next_fire (s : sched) (t : int) : int =
+  match s with
+  | Every (p, ph) -> period_start p ph t + p
+  | Pair (p, ph, a) ->
+    let b = period_start p ph t in
+    if t - b < a then b + a else b + p
+
+type missed = NoneMissed | FewMissed | ManyMissed
+
+type mrst = { earliest : int; recent : int option; missed : missed; err : bool }
+
+(* mostRecentScheduleTime *)
+let most_recent (s : sched) (base : int) (now : int) (deadline : int option) (include_dl : bool) : mrst =
+  let earliest =
+    match deadline with
+    | Some d when include_dl -> if now - d > base then now - d else base
+    | _ -> base in
+  let t1 = next_fire s earliest in
+  let t2 = next_fire s t1 in
+  if now < t1 then { earliest; recent = None; missed = NoneMissed; err = false }
+  else if now < t2 then { earliest; recent = Some t1; missed = NoneMissed; err = false }
+  else
+    let delta = t2 - t1 in
+    if delta < 1 then { earliest; recent = None; missed = NoneMissed; err = true }
+    else
+      let elapsed = now - t1 in
+      let n = (elapsed / delta) + 1 in
+      let pe = t1 + (n - 2) * delta in
+      let r = prev_fire s now in
+      let missed = if n > 100 then ManyMissed else if n > 0 then FewMissed else NoneMissed in
+      if r > pe then { earliest; recent = Some r; missed; err = false }
+      else { earliest; recent = None; missed; err = false }
+
+(* nextScheduleTimeDuration as an absolute instant (duration = it + 100ms - now) *)
+let requeue_at (s : sched) (base : int) (now : int) : int =
+  let m = most_recent s base now None false in
+  if m.err then next_fire s now
+  else match m.recent with
+    | Some r -> next_fire s r
+    | None -> if m.missed = NoneMissed then next_fire s m.earliest else next_fire s now
+
+type policy = Allow | Forbid | Replace
+
+type create_res = CreateOk | ExistsOwned | ExistsForeign | CreateErr
+
+type input = {
+  now : int;
+  creation : int;
+  lst : int option;
+  deadline : int option;
+  suspend : bool;
+  policy : policy;
+  deleting : bool;
+  tz_valid : bool;
+  active : int;           (* refs in status.active whose job is still running, after reconciliation *)
+  name_in_active : bool;  (* status.active holds a ref with the job name for the scheduled time *)
+  delete_ok : bool;       (* Replace: deleting the active jobs succeeds *)
+  create : create_res;    (* what Jobs.Create answers *)
+}
+
+type outcome =
+  | Deleting | BadTZ | Suspended | InvalidSchedule
+  | NoUnmet | TooLate | AlreadyProcessed | ForbidSkip | ReplaceFailed
+  | Created of int | Adopted of int | ExistsForeignStop | CreateFailed
+
+type output = {
+  outcome : outcome;
+  deleted : int;
+  new_lst : int option;
+  new_active : int;
+  requeue : int option;
+  many : bool;
+}
+
+let base_of (i : input) : int = match i.lst with Some l -> l | None -> i.creation
+
+let mk (i : input) (o : outcome) (rq : int option) (many : bool) : output =
+  { outcome = o; deleted = 0; new_lst = i.lst; new_active = i.active; requeue = rq; many }
+
+let sync_step (s : sched) (i : input) : output =
+  if i.deleting then mk i Deleting None false
+  else if not i.tz_valid then mk i BadTZ None false
+  else if i.suspend then mk i Suspended None false
+  else
+    let base = base_of i in
+    let m = most_recent s base i.now i.deadline true in
+    let many = (m.missed = ManyMissed) in
+    match m.recent with
+    | None ->
+      if m.err then mk i InvalidSchedule None false
+      else mk i NoUnmet (Some (requeue_at s base i.now)) false
+    | Some t ->
+      if m.err then mk i InvalidSchedule None many
+      else
+      let too_late = (match i.deadline with Some d -> t + d < i.now | None -> false) in
+      if too_late then mk i TooLate (Some (requeue_at s base i.now)) many
+      else if i.name_in_active || i.lst = Some t then
+        mk i AlreadyProcessed (Some (requeue_at s base i.now)) many
+      else if i.policy = Forbid && i.active > 0 then
+        mk i ForbidSkip (Some (requeue_at s base i.now)) many
+      else if i.policy = Replace && i.active > 0 && not i.delete_ok then
+        mk i ReplaceFailed None many
+      else
+        let deleted = if i.policy = Replace then i.active else 0 in
+        let remaining = i.active - deleted in
+        match i.create with
+        | CreateErr -> { (mk i CreateFailed None many) with deleted; new_active = remaining }
+        | ExistsForeign -> { (mk i ExistsForeignStop None many) with deleted; new_active = remaining }
+        | CreateOk ->
+          { outcome = Created t; deleted; new_lst = Some t; new_active = remaining + 1;
+            requeue = Some (requeue_at s t i.now); many }
+        | ExistsOwned ->
+          { outcome = Adopted t; deleted; new_lst = Some t; new_active = remaining + 1;
+            requeue = Some (requeue_at s t i.now); many }
+
+let input_ok (i : input) : bool =
+  i.active >= 0 &&
+  (match i.deadline with Some d -> d >= 0 | None -> true) &&
+  (match i.lst with Some l -> l >= i.creation | None -> true)
+
+let minutely : sched = Every (60, 0)
+let step_minutely (i : input) : output = sync_step minutely i
+
+(* history limit: removeOldestJobs on n finished jobs of one kind; fails = deletions that error *)
+let kept_after_cleanup (limit : int option) (n : int) (fails : int) : int =
+  match limit with
+  | None -> n
+  | Some l ->
+    let to_delete = n - l in
+    if to_delete <= 0 then n
+    else
+      let f = if fails < 0 then 0 else if fails > to_delete then to_delete else fails in
+      n - to_delete + f
+
+(* The step split for decomposition: decide (controller branches, m symbolic)
+   composed with most_recent; compose s i = sync_step s i is proved. *)
+type rq = RqNone | RqFromBase | RqFromScheduled
+
+type decision = { d_outcome : outcome; d_deleted : int; d_new_lst : int option; d_new_active : int; d_rq : rq; d_many : bool }
+
+let decide (i : input) (m : mrst) : decision =
+  let k o r many = { d_outcome = o; d_deleted = 0; d_new_lst = i.lst; d_new_active = i.active; d_rq = r; d_many = many } in
+  if i.deleting then k Deleting RqNone false
+  else if not i.tz_valid then k BadTZ RqNone false
+  else if i.suspend then k Suspended RqNone false
+  else
+    let many = (m.missed = ManyMissed) in
+    match m.recent with
+    | None -> if m.err then k InvalidSchedule RqNone false else k NoUnmet RqFromBase false
+    | Some t ->
+      if m.err then k InvalidSchedule RqNone many
+      else
+      let too_late = (match i.deadline with Some d -> t + d < i.now | None -> false) in
+      if too_late then k TooLate RqFromBase many
+      else if i.name_in_active || i.lst = Some t then k AlreadyProcessed RqFromBase many
+      else if i.policy = Forbid && i.active > 0 then k ForbidSkip RqFromBase many
+      else if i.policy = Replace && i.active > 0 && not i.delete_ok then k ReplaceFailed RqNone many
+      else
+        let deleted = if i.policy = Replace then i.active else 0 in
+        let remaining = i.active - deleted in
+        match i.create with
+        | CreateErr -> { (k CreateFailed RqNone many) with d_deleted = deleted; d_new_active = remaining }
+        | ExistsForeign -> { (k ExistsForeignStop RqNone many) with d_deleted = deleted; d_new_active = remaining }
+        | CreateOk -> { d_outcome = Created t; d_deleted = deleted; d_new_lst = Some t; d_new_active = remaining + 1; d_rq = RqFromScheduled; d_many = many }
+        | ExistsOwned -> { d_outcome = Adopted t; d_deleted = deleted; d_new_lst = Some t; d_new_active = remaining + 1; d_rq = RqFromScheduled; d_many = many }
+
+let compose (s : sched) (i : input) : output =
+  let base = base_of i in
+  let m = most_recent s base i.now i.deadline true in
+  let d = decide i m in
+  let requeue = match d.d_rq, d.d_outcome with
+    | RqNone, _ -> None
+    | RqFromBase, _ -> Some (requeue_at s base i.now)
+    | RqFromScheduled, Created t -> Some (requeue_at s t i.now)
+    | RqFromScheduled, Adopted t -> Some (requeue_at s t i.now)
+    | RqFromScheduled, _ -> None in
+  { outcome = d.d_outcome; deleted = d.d_deleted; new_lst = d.d_new_lst; new_active = d.d_new_active; requeue; many = d.d_many }
+
+let mr_minutely (base : int) (now : int) (deadline : int option) : mrst = most_recent minutely base now deadline true
+
+let mr_pair (base : int) (now : int) : mrst = most_recent (Pair (86400, 0, 3600)) base now None false
+
+(* every-minute most_recent with t2 - t1 written as 60; proved equal to mr_minutely *)
+let mr_minutely_lin (base : int) (now : int) (deadline : int option) : mrst =
+  let earliest =
+    match deadline with
+    | Some d -> if now - d > base then now - d else base
+    | None -> base in
+  let t1 = earliest - (earliest mod 60) + 60 in
+  let t2 = t1 + 60 in
+  if now < t1 then { earliest; recent = None; missed = NoneMissed; err = false }
+  else if now < t2 then { earliest; recent = Some t1; missed = NoneMissed; err = false }
+  else
+    let n = ((now - t1) / 60) + 1 in
+    let pe = t1 + (n - 2) * 60 in
+    let r = now - (now mod 60) in
+    let missed = if n > 100 then ManyMissed else if n > 0 then FewMissed else NoneMissed in
+    if r > pe then { earliest; recent = Some r; missed; err = false }
+    else { earliest; recent = None; missed; err = false }
