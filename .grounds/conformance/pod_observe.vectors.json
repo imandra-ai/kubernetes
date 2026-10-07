@@ -1,0 +1,286 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "pod_observe",
+  "symbol": "PDB disruption arithmetic",
+  "params": [
+    "p"
+  ],
+  "signature": "pod -> (bool * bool)",
+  "model": {
+    "hash": "b827498fa384b2de4606df277cc05822a023126847c994543c795c3a7132bc0e"
+  },
+  "assuming": null,
+  "vectors": [
+    {
+      "id": "pod_observe_r1",
+      "region": 1,
+      "constraints": [
+        "not p.deleting",
+        "not Is_a(None, p.disrupted_age)",
+        "Option.get p.disrupted_age <= 119"
+      ],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": false,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              0
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "id": "pod_observe_r2",
+      "region": 2,
+      "constraints": [
+        "p.deleting"
+      ],
+      "input": {
+        "p": {
+          "deleting": true,
+          "ready": false,
+          "disrupted_age": {
+            "$c": "None"
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "id": "pod_observe_r3",
+      "region": 3,
+      "constraints": [
+        "not p.deleting",
+        "not Is_a(None, p.disrupted_age)",
+        "Option.get p.disrupted_age = 120"
+      ],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": false,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              120
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          true
+        ]
+      }
+    },
+    {
+      "id": "pod_observe_r4",
+      "region": 4,
+      "constraints": [
+        "not p.deleting",
+        "not Is_a(None, p.disrupted_age)",
+        "Option.get p.disrupted_age >= 121"
+      ],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": false,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              121
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "id": "pod_observe_r5",
+      "region": 5,
+      "constraints": [
+        "not p.deleting",
+        "Is_a(None, p.disrupted_age)"
+      ],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": false,
+          "disrupted_age": {
+            "$c": "None"
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "id": "pod_observe_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              120
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          true
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pod_observe_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              119
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          true
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pod_observe_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              121
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          false
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pod_observe_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              -30
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          true
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pod_observe_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": true,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "Some",
+            "args": [
+              10
+            ]
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          false,
+          false
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pod_observe_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "p": {
+          "deleting": false,
+          "ready": true,
+          "disrupted_age": {
+            "$c": "None",
+            "args": []
+          }
+        }
+      },
+      "expected": {
+        "$tuple": [
+          true,
+          false
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}

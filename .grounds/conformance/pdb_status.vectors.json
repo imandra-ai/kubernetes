@@ -1,0 +1,1425 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "pdb_status",
+  "symbol": "PDB disruption arithmetic",
+  "params": [
+    "s",
+    "n_pods",
+    "scale",
+    "cur"
+  ],
+  "signature": "spec -> int -> int -> int -> status",
+  "model": {
+    "hash": "b827498fa384b2de4606df277cc05822a023126847c994543c795c3a7132bc0e"
+  },
+  "assuming": "pdb_reachable",
+  "vectors": [
+    {
+      "id": "pdb_status_r1",
+      "region": 1,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) <= (-1)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r2",
+      "region": 2,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) <= (-1)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r3",
+      "region": 3,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale >= 1",
+        "cur = 0",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) <= (-1)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                2
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r4",
+      "region": 4,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "(scale = 0) || (Destruct(Pct, 0, Destruct(MinAvail, 0, s)) = 0)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r5",
+      "region": 5,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale = 0) || (Destruct(Pct, 0, Destruct(MinAvail, 0, s)) = 0)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r6",
+      "region": 6,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MinAvail, 0, s)) mod 100) = 0",
+        "scale >= 1",
+        "cur = 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r7",
+      "region": 7,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "cur = 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "scale >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MinAvail, 0, s)) mod 100) = 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r8",
+      "region": 8,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "not Is_a(MaxUnavail, s)",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MinAvail, 0, s)) >= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r9",
+      "region": 9,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "scale >= 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "cur + (-1) * Destruct(IntV, 0, Destruct(MinAvail, 0, s)) <= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r10",
+      "region": 10,
+      "constraints": [
+        "cur <= n_pods",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(MinAvail, s)",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "NoBudget"
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r11",
+      "region": 11,
+      "constraints": [
+        "cur <= n_pods",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(MinAvail, s)",
+        "scale >= 0",
+        "cur >= 0",
+        "n_pods >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "NoBudget"
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r12",
+      "region": 12,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale >= 1",
+        "cur >= 1",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) <= (-1)"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                2
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r13",
+      "region": 13,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MinAvail, 0, s)) mod 100) = 0",
+        "scale >= 1",
+        "cur >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r14",
+      "region": 14,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "cur >= 1",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MinAvail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "scale >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MinAvail, 0, s)) mod 100) = 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r15",
+      "region": 15,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MinAvail, s)",
+        "Is_a(IntV, Destruct(MinAvail, 0, s))",
+        "n_pods <> 0",
+        "not Is_a(MaxUnavail, s)",
+        "scale >= 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MinAvail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "cur + (-1) * Destruct(IntV, 0, Destruct(MinAvail, 0, s)) >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r16",
+      "region": 16,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale >= 1",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "cur + Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) + (-1) * scale >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r17",
+      "region": 17,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r18",
+      "region": 18,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r19",
+      "region": 19,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "n_pods <> 0",
+        "cur >= 0",
+        "Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "n_pods >= 1",
+        "scale >= 1",
+        "scale + (-1) * Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "cur + Destruct(IntV, 0, Destruct(MaxUnavail, 0, s)) + (-1) * scale <= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r23",
+      "region": 23,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "(scale = 0) || (Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) = 0)",
+        "n_pods = 0",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 0,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r24",
+      "region": 24,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "n_pods <> 0",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "(scale = 0) || (Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) = 0)",
+        "scale = 0",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100",
+        "n_pods >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 0,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r25",
+      "region": 25,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "n_pods <> 0",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) mod 100) = 0",
+        "scale >= 1",
+        "cur + (-1) * scale <= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r26",
+      "region": 26,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "n_pods <> 0",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "scale >= 1",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) mod 100) = 0",
+        "cur + (-1) * scale <= 0"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 0
+      }
+    },
+    {
+      "id": "pdb_status_r30",
+      "region": 30,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "n_pods <> 0",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) mod 100) = 0",
+        "scale >= 1",
+        "cur + (-1) * scale >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 2,
+        "scale": 1,
+        "cur": 2
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_r31",
+      "region": 31,
+      "constraints": [
+        "cur <= n_pods",
+        "Is_a(MaxUnavail, s)",
+        "n_pods <> 0",
+        "not Is_a(IntV, Destruct(MaxUnavail, 0, s))",
+        "scale >= 1",
+        "cur >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) >= 0",
+        "Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) <= 100",
+        "n_pods >= 1",
+        "(scale * Destruct(Pct, 0, Destruct(MaxUnavail, 0, s)) mod 100) = 0",
+        "cur + (-1) * scale >= 1"
+      ],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 2,
+        "scale": 1,
+        "cur": 2
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 1
+      }
+    },
+    {
+      "id": "pdb_status_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "n_pods": 7,
+        "scale": 7,
+        "cur": 7
+      },
+      "expected": {
+        "expected": 7,
+        "desired": 4,
+        "allowed": 3
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "n_pods": 7,
+        "scale": 7,
+        "cur": 7
+      },
+      "expected": {
+        "expected": 7,
+        "desired": 3,
+        "allowed": 4
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                10
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 1
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "n_pods": 2,
+        "scale": 1,
+        "cur": 2
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 1
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 2,
+        "scale": 1,
+        "cur": 2
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 1,
+        "allowed": 1
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 0,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 0,
+        "allowed": 3
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 0,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "NoBudget",
+          "args": []
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 0,
+        "desired": 0,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "n_pods": 1,
+        "scale": 1,
+        "cur": 0
+      },
+      "expected": {
+        "expected": 1,
+        "desired": 0,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                5
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 5,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "IntV",
+              "args": [
+                5
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 0,
+        "allowed": 3
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                33
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 1,
+        "allowed": 2
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                1
+              ]
+            }
+          ]
+        },
+        "n_pods": 2,
+        "scale": 100,
+        "cur": 2
+      },
+      "expected": {
+        "expected": 100,
+        "desired": 99,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                90
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 2147483647,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 2147483647,
+        "desired": 1932735283,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                100
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 3,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c16",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                0
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 3,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c17",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MaxUnavail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "n_pods": 7,
+        "scale": 7,
+        "cur": 3
+      },
+      "expected": {
+        "expected": 7,
+        "desired": 3,
+        "allowed": 0
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "pdb_status_c18",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "s": {
+          "$c": "MinAvail",
+          "args": [
+            {
+              "$c": "Pct",
+              "args": [
+                50
+              ]
+            }
+          ]
+        },
+        "n_pods": 3,
+        "scale": 3,
+        "cur": 1
+      },
+      "expected": {
+        "expected": 3,
+        "desired": 2,
+        "allowed": 0
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": [
+    {
+      "region": 20,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 21,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 22,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 27,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 28,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 29,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    }
+  ]
+}

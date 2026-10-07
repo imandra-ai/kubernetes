@@ -1,0 +1,1281 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "evict",
+  "symbol": "PDB disruption arithmetic",
+  "params": [
+    "ph",
+    "deleting",
+    "ready",
+    "n_pdbs",
+    "pol",
+    "s"
+  ],
+  "signature": "phase -> bool -> bool -> int -> policy -> pdb_st -> outcome",
+  "model": {
+    "hash": "b827498fa384b2de4606df277cc05822a023126847c994543c795c3a7132bc0e"
+  },
+  "assuming": "evict_domain",
+  "vectors": [
+    {
+      "id": "evict_r1",
+      "region": 1,
+      "constraints": [
+        "ph = Succeeded",
+        "n_pdbs >= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Succeeded"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 0,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedIgnoringPdb"
+      }
+    },
+    {
+      "id": "evict_r2",
+      "region": 2,
+      "constraints": [
+        "ph = Failed",
+        "ph <> Succeeded",
+        "n_pdbs >= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Failed"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 0,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedIgnoringPdb"
+      }
+    },
+    {
+      "id": "evict_r3",
+      "region": 3,
+      "constraints": [
+        "ph = Pending",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "n_pdbs >= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Pending"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 0,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedIgnoringPdb"
+      }
+    },
+    {
+      "id": "evict_r4",
+      "region": 4,
+      "constraints": [
+        "deleting",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "n_pdbs >= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": true,
+        "ready": false,
+        "n_pdbs": 0,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedIgnoringPdb"
+      }
+    },
+    {
+      "id": "evict_r5",
+      "region": 5,
+      "constraints": [
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs >= 2",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 2,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "MultiplePdbs500"
+      }
+    },
+    {
+      "id": "evict_r6",
+      "region": 6,
+      "constraints": [
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "n_pdbs = 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 0,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedNoPdb"
+      }
+    },
+    {
+      "id": "evict_r7",
+      "region": 7,
+      "constraints": [
+        "not ready",
+        "pol = AlwaysAllow",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 38,
+          "generation": 7719,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedUnhealthyNoDecrement"
+      }
+    },
+    {
+      "id": "evict_r8",
+      "region": 8,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired >= 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 1236,
+          "st_allowed": 1,
+          "st_current": 39,
+          "st_desired": 39,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedUnhealthyNoDecrement"
+      }
+    },
+    {
+      "id": "evict_r9",
+      "region": 9,
+      "constraints": [
+        "ready",
+        "s.generation > s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 0,
+          "generation": 1,
+          "st_allowed": 2,
+          "st_current": 3,
+          "st_desired": 4,
+          "n_disrupted": 38
+        }
+      },
+      "expected": {
+        "$c": "Stale429"
+      }
+    },
+    {
+      "id": "evict_r10",
+      "region": 10,
+      "constraints": [
+        "not ready",
+        "pol <> AlwaysAllow",
+        "s.st_current < s.st_desired",
+        "s.generation > s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1236,
+          "generation": 1237,
+          "st_allowed": 2,
+          "st_current": 0,
+          "st_desired": 1,
+          "n_disrupted": 2437
+        }
+      },
+      "expected": {
+        "$c": "Stale429"
+      }
+    },
+    {
+      "id": "evict_r11",
+      "region": 11,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "s.generation > s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired <= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 7720,
+          "st_allowed": 1,
+          "st_current": 0,
+          "st_desired": -38,
+          "n_disrupted": 1236
+        }
+      },
+      "expected": {
+        "$c": "Stale429"
+      }
+    },
+    {
+      "id": "evict_r12",
+      "region": 12,
+      "constraints": [
+        "ready",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed <= (-1)"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 0,
+          "generation": 0,
+          "st_allowed": -1,
+          "st_current": 1,
+          "st_desired": 2,
+          "n_disrupted": 38
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenNegative"
+      }
+    },
+    {
+      "id": "evict_r13",
+      "region": 13,
+      "constraints": [
+        "not ready",
+        "pol <> AlwaysAllow",
+        "s.st_current < s.st_desired",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed <= (-1)"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": -1,
+          "st_current": 0,
+          "st_desired": 1,
+          "n_disrupted": 2437
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenNegative"
+      }
+    },
+    {
+      "id": "evict_r14",
+      "region": 14,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired <= 0",
+        "s.n_disrupted >= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed <= (-1)"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": -1,
+          "st_current": 0,
+          "st_desired": -38,
+          "n_disrupted": 2437
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenNegative"
+      }
+    },
+    {
+      "id": "evict_r15",
+      "region": 15,
+      "constraints": [
+        "ready",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 0",
+        "s.n_disrupted >= 2001"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 0,
+          "generation": 0,
+          "st_allowed": 38,
+          "st_current": 1,
+          "st_desired": 2,
+          "n_disrupted": 2001
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenTooManyDisrupted"
+      }
+    },
+    {
+      "id": "evict_r16",
+      "region": 16,
+      "constraints": [
+        "not ready",
+        "pol <> AlwaysAllow",
+        "s.st_current < s.st_desired",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 0",
+        "s.n_disrupted >= 2001"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 2437,
+          "st_current": 0,
+          "st_desired": 1,
+          "n_disrupted": 2001
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenTooManyDisrupted"
+      }
+    },
+    {
+      "id": "evict_r17",
+      "region": 17,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired <= 0",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 0",
+        "s.n_disrupted >= 2001"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 2437,
+          "st_current": 0,
+          "st_desired": -38,
+          "n_disrupted": 2001
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenTooManyDisrupted"
+      }
+    },
+    {
+      "id": "evict_r18",
+      "region": 18,
+      "constraints": [
+        "ready",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed = 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 0,
+          "st_allowed": 0,
+          "st_current": 1,
+          "st_desired": 2,
+          "n_disrupted": 38
+        }
+      },
+      "expected": {
+        "$c": "Budget429"
+      }
+    },
+    {
+      "id": "evict_r19",
+      "region": 19,
+      "constraints": [
+        "not ready",
+        "pol <> AlwaysAllow",
+        "s.st_current < s.st_desired",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed = 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 0,
+          "st_current": 8855,
+          "st_desired": 8856,
+          "n_disrupted": 436
+        }
+      },
+      "expected": {
+        "$c": "Budget429"
+      }
+    },
+    {
+      "id": "evict_r20",
+      "region": 20,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "s.generation <= s.observed_gen",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired <= 0",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed = 0"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 0,
+          "st_current": 8817,
+          "st_desired": -38,
+          "n_disrupted": 436
+        }
+      },
+      "expected": {
+        "$c": "Budget429"
+      }
+    },
+    {
+      "id": "evict_r21",
+      "region": 21,
+      "constraints": [
+        "ready",
+        "s.generation <= s.observed_gen",
+        "s.st_allowed <> 0",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 1"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 0,
+          "generation": 0,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 3,
+          "n_disrupted": 38
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "evict_r22",
+      "region": 22,
+      "constraints": [
+        "not ready",
+        "pol <> AlwaysAllow",
+        "s.st_current < s.st_desired",
+        "s.generation <= s.observed_gen",
+        "s.st_allowed <> 0",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 1"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 8856,
+          "st_current": 0,
+          "st_desired": 1,
+          "n_disrupted": 436
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          8855
+        ]
+      }
+    },
+    {
+      "id": "evict_r23",
+      "region": 23,
+      "constraints": [
+        "not ready",
+        "s.st_current >= s.st_desired",
+        "pol <> AlwaysAllow",
+        "s.generation <= s.observed_gen",
+        "s.st_allowed <> 0",
+        "ph <> Succeeded",
+        "ph <> Failed",
+        "ph <> Pending",
+        "not deleting",
+        "n_pdbs = 1",
+        "s.st_desired <= 0",
+        "s.n_disrupted >= 0",
+        "s.n_disrupted <= 2000",
+        "s.observed_gen >= 0",
+        "s.generation >= 0",
+        "s.st_allowed >= 1"
+      ],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 7719,
+          "generation": 5798,
+          "st_allowed": 1,
+          "st_current": 0,
+          "st_desired": -38,
+          "n_disrupted": 436
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          0
+        ]
+      }
+    },
+    {
+      "id": "evict_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 0,
+          "st_current": 0,
+          "st_desired": 0,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "Budget429"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "AlwaysAllow"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 0,
+          "st_current": 0,
+          "st_desired": 0,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedUnhealthyNoDecrement"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "IfHealthyBudget"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 1,
+          "st_current": 1,
+          "st_desired": 0,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 1,
+          "n_disrupted": 2000
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 1,
+          "st_current": 2,
+          "st_desired": 1,
+          "n_disrupted": 2001
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenTooManyDisrupted"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 0,
+          "generation": 1,
+          "st_allowed": 5,
+          "st_current": 5,
+          "st_desired": 0,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "Stale429"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Pending"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 0,
+          "st_current": 0,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedIgnoringPdb"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Unknown"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 0,
+          "st_current": 3,
+          "st_desired": 3,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "Budget429"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "IfHealthyBudget"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 1,
+          "st_current": 3,
+          "st_desired": 2,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "DeletedUnhealthyNoDecrement"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 2,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 1,
+          "st_current": 3,
+          "st_desired": 2,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "MultiplePdbs500"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": true,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": -1,
+          "st_current": 3,
+          "st_desired": 2,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "ForbiddenNegative"
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "evict_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "ph": {
+          "$c": "Running"
+        },
+        "deleting": false,
+        "ready": false,
+        "n_pdbs": 1,
+        "pol": {
+          "$c": "DefaultPolicy"
+        },
+        "s": {
+          "observed_gen": 1,
+          "generation": 1,
+          "st_allowed": 2,
+          "st_current": 1,
+          "st_desired": 2,
+          "n_disrupted": 0
+        }
+      },
+      "expected": {
+        "$c": "Decremented",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}
