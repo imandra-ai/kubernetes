@@ -1,4 +1,114 @@
-{"format":"grounds-vectors/1","technique":"regions","engine":"imandrax","function":"privileged_step","symbol":"Pod Security Admission policy","params":["c"],"signature":"container -> bool","model":{"hash":"0792d4bf90ce0d82c9b432721eb9638b5b0fdcab0350def1d19e4af1d7056baa"},"assuming":null,"vectors":[
-{"id":"privileged_step_r1","region":1,"constraints":["not c.sc"],"input":{"c":{"sc":false,"privileged":{"$c":"None"},"caps":false,"cap_add":[],"cap_drop":[],"proc_mount":{"$c":"None"},"run_as_non_root":{"$c":"None"},"run_as_user":{"$c":"None"},"seccomp":{"$c":"None"},"selinux":{"$c":"None"},"ape":{"$c":"None"},"apparmor":{"$c":"None"},"host_process":{"$c":"None"},"host_ports":[],"probe_hosts":[],"seccomp_annot":{"$c":"None"}}},"expected":true},
-{"id":"privileged_step_r2","region":2,"constraints":["c.sc"],"input":{"c":{"sc":true,"privileged":{"$c":"None"},"caps":false,"cap_add":[],"cap_drop":[],"proc_mount":{"$c":"None"},"run_as_non_root":{"$c":"None"},"run_as_user":{"$c":"None"},"seccomp":{"$c":"None"},"selinux":{"$c":"None"},"ape":{"$c":"None"},"apparmor":{"$c":"None"},"host_process":{"$c":"None"},"host_ports":[],"probe_hosts":[],"seccomp_annot":{"$c":"None"}}},"expected":true}
-],"without":[]}
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "privileged_step",
+  "symbol": "Pod Security Admission policy",
+  "params": [
+    "c"
+  ],
+  "signature": "container -> bool",
+  "model": {
+    "hash": "f513b3b97ab71a3813c08a1f8d213290626e51b25c0759ef1379757cdafa797e"
+  },
+  "assuming": null,
+  "vectors": [
+    {
+      "id": "privileged_step_r1",
+      "region": 1,
+      "constraints": [
+        "not c.sc"
+      ],
+      "input": {
+        "c": {
+          "sc": false,
+          "privileged": {
+            "$c": "None"
+          },
+          "caps": false,
+          "cap_add": [],
+          "cap_drop": [],
+          "proc_mount": {
+            "$c": "None"
+          },
+          "run_as_non_root": {
+            "$c": "None"
+          },
+          "run_as_user": {
+            "$c": "None"
+          },
+          "seccomp": {
+            "$c": "None"
+          },
+          "selinux": {
+            "$c": "None"
+          },
+          "ape": {
+            "$c": "None"
+          },
+          "apparmor": {
+            "$c": "None"
+          },
+          "host_process": {
+            "$c": "None"
+          },
+          "host_ports": [],
+          "probe_hosts": [],
+          "seccomp_annot": {
+            "$c": "None"
+          }
+        }
+      },
+      "expected": true
+    },
+    {
+      "id": "privileged_step_r2",
+      "region": 2,
+      "constraints": [
+        "c.sc"
+      ],
+      "input": {
+        "c": {
+          "sc": true,
+          "privileged": {
+            "$c": "None"
+          },
+          "caps": false,
+          "cap_add": [],
+          "cap_drop": [],
+          "proc_mount": {
+            "$c": "None"
+          },
+          "run_as_non_root": {
+            "$c": "None"
+          },
+          "run_as_user": {
+            "$c": "None"
+          },
+          "seccomp": {
+            "$c": "None"
+          },
+          "selinux": {
+            "$c": "None"
+          },
+          "ape": {
+            "$c": "None"
+          },
+          "apparmor": {
+            "$c": "None"
+          },
+          "host_process": {
+            "$c": "None"
+          },
+          "host_ports": [],
+          "probe_hosts": [],
+          "seccomp_annot": {
+            "$c": "None"
+          }
+        }
+      },
+      "expected": true
+    }
+  ],
+  "without": []
+}
