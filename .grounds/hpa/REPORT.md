@@ -61,11 +61,46 @@ and min/max pre-clamps in reconcileAutoscaler). No Kubernetes code was changed.
 - `usage_ratio_replicas`: 7 regions; currentReplicas 0 => `ceil(ratio)` ignoring tolerance and
   ready pods; current > 0 and 0 ready pods => 0.
 
+## Follow-up: real relaxation of calcPlainMetricReplicas
+
+The integer decomposition (154 regions) gave no sample point: nonlinear integer arithmetic.
+`plain_real` keeps every branch of `plain_replicas` but makes counts, metric sum and target
+reals, the average `sum/n` exact (no truncation) and the proposal `ratio*n` exact (no ceil).
+Nonlinear real arithmetic is decidable, so:
+
+- **25 regions over reals, 25 with sample points** (`.grounds/conformance/plain_real.vectors.json`).
+  The 154 integer regions collapse to 25 because the int splits came from `tdiv`/`ceil`/int32
+  rails, not from the code's branches.
+- **Integer neighbours.** Each real sample was scaled to target 100. Integer points were then
+  placed on both sides of every boundary that involves a floor, a ceil or the tolerance band:
+  the truncated first average around `T(1-down)`, `T`, `T(1+up)`; the post-fill average around
+  the same values; and `current` around `ceil(p)`. Each was tried with the sample's tolerances
+  and with 0.1/0.1. That gave 1297 integer points; a scratch classifier (deleted) kept every
+  point whose branch differs between exact and integer evaluation (85), plus up to 2 agreeing
+  neighbours per region: **133 points**. ImandraX evaluated the integer model
+  (`plain_replicas_int_boundaries.vectors.json`) and the real relaxation (`plain_real.vectors.json`,
+  chosen inputs) at all 133.
+- **Model vs Go: 133/133 agree** (`TestGroundsConformance/plain_replicas_int_boundaries`).
+  No new disagreement.
+- **Integer point in a different region than its real neighbour: 55 of 133 by output**
+  (`TestGroundsIntBoundaryShifts`, pinned). The other 30 of the 85 change only the branch, not
+  the result. Every shift has one cause: `GetMetricUsageRatio` truncates the average to an int64
+  before dividing by the target, so the code's ratio sits up to one milli-unit below the true
+  one. Three shapes:
+  - upper band edge: average 100.5 vs target 100 at tolerance 0 → the code holds, exact math
+    scales 1 → 3; post-fill average 300.75 at tolerance.scaleUp 2 → the code holds at 4 where
+    exact math scales to **13** (c62);
+  - one replica fewer: 2 pods at 200.5 → ratio 2.0 → 4 replicas; exact 4.01 → 5;
+  - near zero: 2 pods summing to 1m → 0 replicas proposed; exact → 1.
+  The trigger window is one milli-unit of the average, so it only matters for metrics whose
+  natural magnitude is a few milli-units; F13 below.
+
 ## Conformance (`go test ./pkg/controller/podautoscaler/ -run TestGroundsConformance -v`)
 
 | Vectors file | Agree | Disagree | Disagreements |
 |---|---|---|---|
 | plain_replicas | 10 | 4 | c3, c4 (ceil of float product), c5, c6 (band edge) |
+| plain_replicas_int_boundaries | 133 | 0 | |
 | usage_ratio_replicas | 13 | 1 | c6 (ceil of float product) |
 | rules_normalize | 11 | 0 | |
 | rate_limit_core | 19 | 0 | |
@@ -94,6 +129,7 @@ existing tests never exercise the production scale-up factor).
 | F9 | Pods policy counts net change | 4 pods/60s, scaled down 5 within the last 60s | limit 10-0+5+4 = **19**: 9 pods added in 60s | By design (code computes from periodStartReplicas) but doc-worthy: "at most N pods per period" is net, not added |
 | F10 | stale ScaledToZero condition | HPA scales 1 -> 0 (condition True); user scales to max; HPA reconciles with no rescale (condition left True); user scales to 0 | HPA scales back up from 0, ignoring the manual zero | Bug: the condition is only refreshed on a rescale despite the "never stale" comment (model-level; not bound to Go) |
 | F11 | legacy path from zero with minReplicas > 4 | current 0, min 5, desired 43 | convertDesiredReplicasWithRules returns 4 (< min); reconcile re-clamps to 5 | By design (caller handles it) |
+| F13 | average truncated to int64 milli-units before the ratio | 55/133 integer boundary points differ from the exact-average relaxation; e.g. 2 ready + 1 missing + 1 unready, sum 1203m vs target 100m, tolerance.scaleUp 2 | holds at **4** where the exact average scales to 13; 2 pods at 200.5 → 4 (exact 5); 2 pods summing to 1m → 0 (exact 1) | By design (milli-unit integer arithmetic) but doc-worthy: a one-milli-unit window at each band edge, and the suppressed change can be large |
 | F12 | Disabled vs min/max | selectPolicy Disabled, current < min or > max | reconcile moves to min/max before behaviors run | By design: Disabled governs metric-driven scaling only |
 
 ## Not established
@@ -101,6 +137,8 @@ existing tests never exercise the production scale-up factor).
 - Full-model proofs (P1-P3 on `plain_replicas` / `resource_replicas` directly) are Z3-unknown
   (nonlinear); the proofs are on the decision core plus the refactoring argument that the full
   model calls the core with the computed values.
-- No region of `plain_replicas` got a sample point; conformance there rests on 14 chosen vectors.
+- No region of the integer `plain_replicas` got a sample point; the real relaxation's 25 regions
+  did, and the integer behaviour is checked at 133 boundary neighbours instead. The 25 real
+  samples themselves have fractional pod counts, so they are not bound to Go.
 - GetResourceReplicas has no vectors file; F6 is checked by a direct Go test.
 - F10 is a model-level trace; the reconcile loop was not driven in Go.

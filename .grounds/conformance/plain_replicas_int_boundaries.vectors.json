@@ -1,0 +1,4100 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "plain_replicas",
+  "symbol": "HPA replica count decision",
+  "params": [
+    "current",
+    "target",
+    "tol_down",
+    "tol_up",
+    "n_ready",
+    "sum_ready",
+    "n_unready",
+    "n_missing"
+  ],
+  "signature": "int -> int -> real -> real -> int -> int -> int -> int -> result",
+  "model": {
+    "hash": "d45ca1f7ce189e3653ef5d0e7f4b58780e58b0133bf844638bd725de5497c6ed"
+  },
+  "assuming": "plain_signs",
+  "vectors": [
+    {
+      "id": "plain_replicas_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 221,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 221,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 221,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 221,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 403,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 443,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 302,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c16",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 332,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c17",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c18",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 200,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c19",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c20",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c21",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c22",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 302,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c23",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 101,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c24",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 101,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c25",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 101,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c26",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c27",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c28",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c29",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 332,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c30",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c31",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c32",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 605,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c33",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 665,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c34",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c35",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c36",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 403,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c37",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c38",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c39",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c40",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c41",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c42",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 302,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c43",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c44",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c45",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c46",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c47",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c48",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c49",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c50",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c51",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 605,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c52",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c53",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c54",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c55",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 665,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c56",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c57",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c58",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 3,
+        "sum_ready": 605,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c59",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 3,
+        "sum_ready": 665,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c60",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 3,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c61",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 3,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c62",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1203,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c63",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 400,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c64",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 400,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c65",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 605,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c66",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c67",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 4,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c68",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c69",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c70",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c71",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 605,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c72",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c73",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 4,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c74",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c75",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c76",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c77",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 100,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c78",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c79",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c80",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c81",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c82",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c83",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c84",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c85",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c86",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c87",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 302,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c88",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c89",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 201,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c90",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c91",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c92",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c93",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 300,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c94",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c95",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c96",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c97",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c98",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c99",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c100",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c101",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c102",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c103",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 5,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c104",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c105",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c106",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c107",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c108",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 5,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c109",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 401,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c110",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 400,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c111",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 400,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c112",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c113",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c114",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c115",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c116",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c117",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c118",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c119",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c120",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c121",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c122",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c123",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c124",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c125",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c126",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c127",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 1,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 1,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c128",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c129",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 0,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          1
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c130",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c131",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 0,
+        "n_ready": 2,
+        "n_unready": 1,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c132",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 500,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c133",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 2,
+        "n_missing": 1,
+        "n_ready": 2,
+        "n_unready": 0,
+        "sum_ready": 501,
+        "target": 100,
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": [
+    {
+      "region": 1,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 2,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 3,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 4,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 5,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 6,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 7,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 8,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 9,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 10,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 11,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 12,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 13,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 14,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 15,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 16,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 17,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 18,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 19,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 20,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 21,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 22,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 23,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 24,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 25,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 26,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 27,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 28,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 29,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 30,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 31,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 32,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 33,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 34,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 35,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 36,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 37,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 38,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 39,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 40,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 41,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 42,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 43,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 44,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 45,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 46,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 47,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 48,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 49,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 50,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 51,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 52,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 53,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 54,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 55,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 56,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 57,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 58,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 59,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 60,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 61,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 62,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 63,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 64,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 65,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 66,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 67,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 68,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 69,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 70,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 71,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 72,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 73,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 74,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 75,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 76,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 77,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 78,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 79,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 80,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 81,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 82,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 83,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 84,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 85,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 86,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 87,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 88,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 89,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 90,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 91,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 92,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 93,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 94,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 95,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 96,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 97,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 98,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 99,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 100,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 101,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 102,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 103,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 104,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 105,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 106,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 107,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 108,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 109,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 110,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 111,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 112,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 113,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 114,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 115,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 116,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 117,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 118,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 119,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 120,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 121,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 122,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 123,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 124,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 125,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 126,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 127,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 128,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 129,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 130,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 131,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 132,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 133,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 134,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 135,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 136,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 137,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 138,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 139,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 140,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 141,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 142,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 143,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 144,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 145,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 146,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 147,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 148,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 149,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 150,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 151,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 152,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 153,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    },
+    {
+      "region": 154,
+      "why": "ImandraX gave no sample point for it - its feasibility is undecided"
+    }
+  ]
+}

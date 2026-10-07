@@ -25,6 +25,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"testing"
 	"time"
 
@@ -264,32 +265,43 @@ func newGroundsController() *HorizontalController {
 	}
 }
 
+func checkPlainVector(t *testing.T, v groundsVector) {
+	t.Helper()
+	in := v.Input
+	got, err := runPlain(t,
+		gInt32(t, in["current"]), gInt(t, in["target"]),
+		Tolerances{scaleDown: gReal(t, in["tol_down"]), scaleUp: gReal(t, in["tol_up"])},
+		int(gInt(t, in["n_ready"])), int(gInt(t, in["n_unready"])), int(gInt(t, in["n_missing"])),
+		gInt(t, in["sum_ready"]))
+	c, args := gCtor(t, v.Expected)
+	switch c {
+	case "Err":
+		if err == nil {
+			t.Errorf("model: Err; code: %d, nil", got)
+		}
+	case "Ok":
+		want := gInt32(t, args[0])
+		if err != nil || got != want {
+			t.Errorf("model: Ok %d; code: %d, %v", want, got, err)
+		}
+	default:
+		t.Fatalf("unknown result %q", c)
+	}
+}
+
 func TestGroundsConformance(t *testing.T) {
 	t.Run("plain_replicas", func(t *testing.T) {
 		f := loadGroundsVectors(t, "plain_replicas.vectors.json", "plain_replicas")
 		for _, v := range f.Vectors {
-			t.Run(v.ID, func(t *testing.T) {
-				in := v.Input
-				got, err := runPlain(t,
-					gInt32(t, in["current"]), gInt(t, in["target"]),
-					Tolerances{scaleDown: gReal(t, in["tol_down"]), scaleUp: gReal(t, in["tol_up"])},
-					int(gInt(t, in["n_ready"])), int(gInt(t, in["n_unready"])), int(gInt(t, in["n_missing"])),
-					gInt(t, in["sum_ready"]))
-				c, args := gCtor(t, v.Expected)
-				switch c {
-				case "Err":
-					if err == nil {
-						t.Errorf("model: Err; code: %d, nil", got)
-					}
-				case "Ok":
-					want := gInt32(t, args[0])
-					if err != nil || got != want {
-						t.Errorf("model: Ok %d; code: %d, %v", want, got, err)
-					}
-				default:
-					t.Fatalf("unknown result %q", c)
-				}
-			})
+			t.Run(v.ID, func(t *testing.T) { checkPlainVector(t, v) })
+		}
+	})
+
+	// Integer neighbours of the boundaries of the real-relaxed decomposition (plain_real).
+	t.Run("plain_replicas_int_boundaries", func(t *testing.T) {
+		f := loadGroundsVectors(t, "plain_replicas_int_boundaries.vectors.json", "plain_replicas")
+		for _, v := range f.Vectors {
+			t.Run(v.ID, func(t *testing.T) { checkPlainVector(t, v) })
 		}
 	})
 
@@ -534,4 +546,65 @@ func TestGroundsFindings(t *testing.T) {
 			t.Errorf("got %d; want 19 (9 pods added within 60s under a 4 pods/60s policy)", got)
 		}
 	})
+}
+
+// groundsIntBoundaryShifts are the chosen integer boundary points (by index)
+// where ImandraX's integer model and its real relaxation disagree after
+// ceiling. Every one traces to GetMetricUsageRatio truncating the average to
+// an int64 before dividing by the target.
+const groundsIntBoundaryShifts = 55
+
+// TestGroundsIntBoundaryShifts compares, at each integer boundary point, the
+// integer model (what the code computes) with the real relaxation evaluated at
+// the same point (exact average, exact proposal). Both outputs come from
+// ImandraX; a difference means the integer point lands in another region than
+// its real neighbour.
+func TestGroundsIntBoundaryShifts(t *testing.T) {
+	ints := loadGroundsVectors(t, "plain_replicas_int_boundaries.vectors.json", "plain_replicas")
+	reals := loadGroundsVectors(t, "plain_real.vectors.json", "plain_real")
+	realAt := map[string]groundsVector{}
+	for _, v := range reals.Vectors {
+		realAt[strings.TrimPrefix(v.ID, "plain_real_")] = v
+	}
+	shifts := 0
+	for _, iv := range ints.Vectors {
+		key := strings.TrimPrefix(iv.ID, "plain_replicas_")
+		rv, ok := realAt[key]
+		if !ok {
+			t.Fatalf("no real-model evaluation for %s", iv.ID)
+		}
+		ic, iargs := gCtor(t, iv.Expected)
+		rc, rargs := gCtor(t, rv.Expected)
+		if ic != "Ok" || rc != "OkR" {
+			if ic == "Ok" || rc == "OkR" {
+				t.Errorf("%s: integer %s, real %s", iv.ID, ic, rc)
+			}
+			continue
+		}
+		in := gInt(t, iargs[0])
+		var r struct {
+			Real string `json:"$real"`
+		}
+		if err := json.Unmarshal(rargs[0], &r); err != nil {
+			t.Fatalf("%s: bad real result %s", rv.ID, rargs[0])
+		}
+		q, _ := new(big.Rat).SetString(r.Real)
+		c := new(big.Int).Div(q.Num(), q.Denom())
+		if new(big.Rat).SetInt(c).Cmp(q) < 0 {
+			c.Add(c, big.NewInt(1))
+		}
+		if c.Int64() != in {
+			shifts++
+			t.Logf("%s: integer model %d, real relaxation %s (ceil %d) at %s", iv.ID, in, r.Real, c.Int64(), string(mustJSON(iv.Input)))
+		}
+	}
+	t.Logf("%d of %d integer boundary points shift", shifts, len(ints.Vectors))
+	if groundsIntBoundaryShifts >= 0 && shifts != groundsIntBoundaryShifts {
+		t.Errorf("got %d shifted points, pinned %d", shifts, groundsIntBoundaryShifts)
+	}
+}
+
+func mustJSON(v any) []byte {
+	b, _ := json.Marshal(v)
+	return b
 }

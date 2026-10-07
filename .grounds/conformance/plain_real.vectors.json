@@ -1,0 +1,6656 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "plain_real",
+  "symbol": "HPA replica count decision",
+  "params": [
+    "current",
+    "target",
+    "tol_down",
+    "tol_up",
+    "n_ready",
+    "sum_ready",
+    "n_unready",
+    "n_missing"
+  ],
+  "signature": "real -> real -> real -> real -> real -> real -> real -> real -> result_r",
+  "model": {
+    "hash": "d45ca1f7ce189e3653ef5d0e7f4b58780e58b0133bf844638bd725de5497c6ed"
+  },
+  "assuming": "plain_real_dom",
+  "vectors": [
+    {
+      "id": "plain_real_r1",
+      "region": 1,
+      "constraints": [
+        "sum_ready /. n_ready /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down <=. (-1.0) +. sum_ready /. n_ready /. target",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "4/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r2",
+      "region": 2,
+      "constraints": [
+        "sum_ready /. n_ready /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down <=. (-1.0) +. sum_ready /. n_ready /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target = 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "4/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r3",
+      "region": 3,
+      "constraints": [
+        "sum_ready /. n_ready /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down <=. (-1.0) +. sum_ready /. n_ready /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target = 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "4/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r4",
+      "region": 4,
+      "constraints": [
+        "sum_ready /. n_ready /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down <=. (-1.0) +. sum_ready /. n_ready /. target",
+        "sum_ready /. n_ready /. target <=. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "2/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r5",
+      "region": 5,
+      "constraints": [
+        "sum_ready /. (n_ready +. n_missing) /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "4/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r6",
+      "region": 6,
+      "constraints": [
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target\n<=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down\n<=. (-1.0)\n    +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r7",
+      "region": 7,
+      "constraints": [
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target\n<=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down\n<=. (-1.0)\n    +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r8",
+      "region": 8,
+      "constraints": [
+        "sum_ready /. (n_ready +. n_unready) /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready) /. target",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "4/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r9",
+      "region": 9,
+      "constraints": [
+        "(-1.0) *. tol_down\n>. (-1.0) +. sum_ready /. (n_ready +. n_unready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target <. 1.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "3/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r10",
+      "region": 10,
+      "constraints": [
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target <=. 1.0 +. tol_up",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "2/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "8/1"
+        },
+        "n_unready": {
+          "$real": "1/6"
+        },
+        "n_missing": {
+          "$real": "1/2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r11",
+      "region": 11,
+      "constraints": [
+        "(-1.0) *. tol_down >. (-1.0) +. sum_ready /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "sum_ready /. (n_ready +. n_missing) /. target <. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "4/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r12",
+      "region": 12,
+      "constraints": [
+        "(-1.0) *. tol_down >. (-1.0) +. sum_ready /. (n_ready +. n_unready) /. target",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "sum_ready /. (n_ready +. n_unready) /. target <. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "4/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r13",
+      "region": 13,
+      "constraints": [
+        "(n_ready +. n_missing)\n*. ((sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target)\n>. current",
+        "(-1.0) *. tol_down\n>. (-1.0)\n   +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target <. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "3/2"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "2/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r14",
+      "region": 14,
+      "constraints": [
+        "(n_ready +. n_missing)\n*. ((sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target)\n>. current",
+        "(-1.0) *. tol_down\n>. (-1.0)\n   +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target <. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "3/2"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "2/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r15",
+      "region": 15,
+      "constraints": [
+        "current\n>. (n_ready +. n_missing) *. (sum_ready /. (n_ready +. n_missing) /. target)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_missing) /. target",
+        "sum_ready /. (n_ready +. n_missing) /. target >. 1.0 +. tol_up",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "sum_ready /. (n_ready +. n_missing) /. target >. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "6/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "10/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r16",
+      "region": 16,
+      "constraints": [
+        "current\n>. (n_ready +. n_unready) *. (sum_ready /. (n_ready +. n_unready) /. target)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready) /. target",
+        "sum_ready /. (n_ready +. n_unready) /. target >. 1.0 +. tol_up",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "sum_ready /. (n_ready +. n_unready) /. target >. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "6/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "10/1"
+        },
+        "n_unready": {
+          "$real": "1/2"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r17",
+      "region": 17,
+      "constraints": [
+        "current\n>. (sum_ready /. (n_ready +. n_unready +. n_missing) /. target)\n   *. (n_ready +. n_unready +. n_missing)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready +. n_missing) /. target",
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target >. 1.0 +. tol_up",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target >. 1.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "4/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "3/20"
+        },
+        "n_missing": {
+          "$real": "1/4"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r18",
+      "region": 18,
+      "constraints": [
+        "(-1.0) *. tol_down >. (-1.0) +. sum_ready /. n_ready /. target",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r19",
+      "region": 19,
+      "constraints": [
+        "(-1.0) *. tol_down <=. (-1.0) +. sum_ready /. n_ready /. target",
+        "sum_ready /. n_ready /. target >. 1.0 +. tol_up",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "8/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r20",
+      "region": 20,
+      "constraints": [
+        "(-1.0) *. tol_down >. (-1.0) +. sum_ready /. n_ready /. target",
+        "sum_ready /. n_ready /. target <=. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "1/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r21",
+      "region": 21,
+      "constraints": [
+        "(n_ready +. n_missing)\n*. ((sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target)\n<=. current",
+        "(-1.0) *. tol_down\n>. (-1.0)\n   +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target <. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "2/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "1/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r22",
+      "region": 22,
+      "constraints": [
+        "(n_ready +. n_missing)\n*. ((sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target)\n<=. current",
+        "(-1.0) *. tol_down\n>. (-1.0)\n   +. (sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target <. 1.0",
+        "(sum_ready +. n_missing *. target) /. (n_ready +. n_missing) /. target <. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "2/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "0/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r23",
+      "region": 23,
+      "constraints": [
+        "current\n<=. (n_ready +. n_unready) *. (sum_ready /. (n_ready +. n_unready) /. target)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready) /. target",
+        "sum_ready /. (n_ready +. n_unready) /. target >. 1.0 +. tol_up",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "sum_ready /. (n_ready +. n_unready) /. target >. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_missing = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "2/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "10/1"
+        },
+        "n_unready": {
+          "$real": "1/2"
+        },
+        "n_missing": {
+          "$real": "0/1"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r24",
+      "region": 24,
+      "constraints": [
+        "current\n<=. (n_ready +. n_missing) *. (sum_ready /. (n_ready +. n_missing) /. target)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_missing) /. target",
+        "sum_ready /. (n_ready +. n_missing) /. target >. 1.0 +. tol_up",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "sum_ready /. (n_ready +. n_missing) /. target >. 1.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "n_unready = 0.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "2/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "10/1"
+        },
+        "n_unready": {
+          "$real": "0/1"
+        },
+        "n_missing": {
+          "$real": "1/2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_r25",
+      "region": 25,
+      "constraints": [
+        "current\n<=. (sum_ready /. (n_ready +. n_unready +. n_missing) /. target)\n    *. (n_ready +. n_unready +. n_missing)",
+        "(-1.0) *. tol_down\n<=. (-1.0) +. sum_ready /. (n_ready +. n_unready +. n_missing) /. target",
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target >. 1.0 +. tol_up",
+        "n_missing >. 0.0",
+        "sum_ready /. n_ready /. target >. 1.0",
+        "n_unready >. 0.0",
+        "current >=. 1.0",
+        "target >=. 1.0",
+        "tol_down >=. 0.0",
+        "tol_down <. 1.0",
+        "tol_up >=. 0.0",
+        "n_ready >=. 1.0",
+        "sum_ready >=. 0.0",
+        "sum_ready /. (n_ready +. n_unready +. n_missing) /. target >. 1.0"
+      ],
+      "input": {
+        "current": {
+          "$real": "2/1"
+        },
+        "target": {
+          "$real": "2/1"
+        },
+        "tol_down": {
+          "$real": "0/1"
+        },
+        "tol_up": {
+          "$real": "0/1"
+        },
+        "n_ready": {
+          "$real": "2/1"
+        },
+        "sum_ready": {
+          "$real": "6/1"
+        },
+        "n_unready": {
+          "$real": "3/20"
+        },
+        "n_missing": {
+          "$real": "1/4"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plain_real_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "201/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "201/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "201/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "201/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "221"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "221/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "221"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "221/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "221"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "221/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "221"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "221/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "403"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "403/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "443"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "443/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c15",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "302"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "151/50"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c16",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "332"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "83/25"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c17",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c18",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "200"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c19",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c20",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c21",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c22",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "302"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "151/50"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c23",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "101"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c24",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "101"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c25",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "101"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c26",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c27",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c28",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c29",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "332"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "83/25"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c30",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c31",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c32",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "605"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "121/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c33",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "665"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "133/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c34",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c35",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c36",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "403"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "403/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c37",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c38",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c39",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c40",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c41",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c42",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "302"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "151/50"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c43",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c44",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c45",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c46",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c47",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c48",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c49",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c50",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c51",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "605"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "121/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c52",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c53",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c54",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c55",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "665"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "133/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c56",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c57",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "3/4"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c58",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "3"
+        },
+        "sum_ready": {
+          "$real": "605"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "121/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c59",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "3"
+        },
+        "sum_ready": {
+          "$real": "665"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "133/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c60",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "3"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c61",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "3"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c62",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1203"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1203/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c63",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "400"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c64",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "400"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "2"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c65",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "605"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "121/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c66",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c67",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "4"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c68",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c69",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c70",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c71",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "605"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "121/20"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c72",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c73",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "4"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c74",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c75",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c76",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c77",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "100"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c78",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c79",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c80",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c81",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c82",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c83",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c84",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "3/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c85",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c86",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c87",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "302"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "151/50"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c88",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c89",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "201"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c90",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "6/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c91",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c92",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c93",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "300"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "2/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c94",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c95",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c96",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c97",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c98",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c99",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c100",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c101",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c102",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c103",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "5"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c104",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c105",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c106",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c107",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c108",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "5"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c109",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "6"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "401"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "401/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c110",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "400"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c111",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "400"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "4/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c112",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c113",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c114",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c115",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c116",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c117",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c118",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c119",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "0/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c120",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c121",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c122",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c123",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c124",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "4"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c125",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c126",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "101/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c127",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "1"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "1"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c128",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c129",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "3"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "0"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "1/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c130",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c131",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "0"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "1"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "501/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c132",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "500"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "5/1"
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_real_c133",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": {
+          "$real": "2"
+        },
+        "n_missing": {
+          "$real": "1"
+        },
+        "n_ready": {
+          "$real": "2"
+        },
+        "n_unready": {
+          "$real": "0"
+        },
+        "sum_ready": {
+          "$real": "501"
+        },
+        "target": {
+          "$real": "100"
+        },
+        "tol_down": {
+          "$real": "0"
+        },
+        "tol_up": {
+          "$real": "0"
+        }
+      },
+      "expected": {
+        "$c": "OkR",
+        "args": [
+          {
+            "$real": "501/100"
+          }
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}
