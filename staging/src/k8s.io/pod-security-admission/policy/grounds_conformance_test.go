@@ -716,17 +716,41 @@ func expectedValue(t *testing.T, function string, raw json.RawMessage) interface
 	return b
 }
 
+// listed by name so a missing file fails instead of silently shrinking the suite
+var groundsVectorFiles = []string{
+	"psa.admit.vectors.json",
+	"psa.ape_step.vectors.json",
+	"psa.apparmor_annot_ok.vectors.json",
+	"psa.apparmor_step.vectors.json",
+	"psa.baseline_ids.vectors.json",
+	"psa.caps_baseline_step.vectors.json",
+	"psa.caps_restricted_step.vectors.json",
+	"psa.host_namespaces_step.vectors.json",
+	"psa.host_path_vol_step.vectors.json",
+	"psa.host_ports_step.vectors.json",
+	"psa.host_probes_step.vectors.json",
+	"psa.privileged_step.vectors.json",
+	"psa.proc_mount_baseline_step.vectors.json",
+	"psa.proc_mount_restricted_step.vectors.json",
+	"psa.restricted_ids.vectors.json",
+	"psa.restricted_vol_step.vectors.json",
+	"psa.run_as_non_root_step.vectors.json",
+	"psa.run_as_user_step.vectors.json",
+	"psa.seccomp_baseline_v1_0.vectors.json",
+	"psa.seccomp_baseline_v1_19.vectors.json",
+	"psa.seccomp_restricted_v1_19.vectors.json",
+	"psa.seccomp_restricted_v1_25.vectors.json",
+	"psa.selinux_step.vectors.json",
+	"psa.sysctl_allowed.vectors.json",
+	"psa.valid_seccomp_annot.vectors.json",
+	"psa.windows_host_process_step.vectors.json",
+}
+
 func loadGroundsVectors(t *testing.T) []gVectorsFile {
 	t.Helper()
-	paths, err := filepath.Glob(filepath.Join(groundsVectorsDir, "psa.*.vectors.json"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if len(paths) == 0 {
-		t.Fatalf("no vectors under %s", groundsVectorsDir)
-	}
 	var files []gVectorsFile
-	for _, path := range paths {
+	for _, name := range groundsVectorFiles {
+		path := filepath.Join(groundsVectorsDir, name)
 		data, err := os.ReadFile(path)
 		if err != nil {
 			t.Fatal(err)
