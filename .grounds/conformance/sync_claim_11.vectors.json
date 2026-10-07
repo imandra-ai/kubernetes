@@ -1,0 +1,3949 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "sync_claim_11",
+  "symbol": "PV binder",
+  "params": [
+    "v",
+    "c"
+  ],
+  "signature": "pv option -> pvc -> result",
+  "model": {
+    "hash": "3cd3d70b37b73375eb3ed4541f909556cceccab4660551091e43ba4cdcbcf16e"
+  },
+  "assuming": "pre_claim_lite",
+  "vectors": [
+    {
+      "id": "sync_claim_11_r1",
+      "region": 1,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "not Is_a(None, (Option.get v).v_ref)",
+        "(Option.get (Option.get v).v_ref).cr_uid <> c.c_uid",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 6
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimMisbound"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r2",
+      "region": 2,
+      "constraints": [
+        "Is_a(None, v)",
+        "c.c_bc",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r3",
+      "region": 3,
+      "constraints": [
+        "Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r4",
+      "region": 4,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r5",
+      "region": 5,
+      "constraints": [
+        "Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 2,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r6",
+      "region": 6,
+      "constraints": [
+        "Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_vol <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol >= 3"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 3,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 4,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 3,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r7",
+      "region": 7,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 4,
+              "v_class": 5,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 2,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 4,
+                "v_class": 5,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r8",
+      "region": 8,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_vol <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol >= 3"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 5,
+              "v_class": 6,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 3,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 4,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 5,
+                "v_class": 6,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 3,
+                "c_phase": {
+                  "$c": "CLost"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvClaimLost"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r9",
+      "region": 9,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "not c.c_selnode",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvWaitForFirstConsumer"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r10",
+      "region": 10,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "not c.c_selnode",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 0",
+        "c.c_class = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 6
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 7718,
+              "v_class": 8,
+              "v_block": false,
+              "v_rwx": true,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 7719,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 7718,
+                "v_class": 8,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 1237,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 7719,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvWaitForFirstConsumer"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r11",
+      "region": 11,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 2",
+        "c.c_class <> 0",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpProvision"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r12",
+      "region": 12,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 0",
+        "c.c_selnode",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": true
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": true
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpProvision"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r13",
+      "region": 13,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 2",
+        "c.c_class <> 0",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 0",
+        "c.c_class = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 1,
+                    "cr_uid": 0
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 7718,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": true,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 7719,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 7718,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 1237,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 7719,
+                "c_class": 1,
+                "c_block": true,
+                "c_rwx": false,
+                "c_selector": true,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpProvision"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r14",
+      "region": 14,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 0",
+        "c.c_selnode",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 0",
+        "c.c_class = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 6
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 7718,
+              "v_class": 8,
+              "v_block": false,
+              "v_rwx": true,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 7719,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": true
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 7718,
+                "v_class": 8,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 1237,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 7719,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": true
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpProvision"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r15",
+      "region": 15,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "not\nIs_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 0"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VAvailable"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 1236,
+              "v_class": 1,
+              "v_block": false,
+              "v_rwx": true,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 2438,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 1236,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 2438
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 1236,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 2438,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 1236,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r16",
+      "region": 16,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r17",
+      "region": 17,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 2,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r18",
+      "region": 18,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_vol <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "c.c_vol >= 3"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 3,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 4,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 3,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r19",
+      "region": 19,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 2"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 4,
+              "v_class": 5,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 2,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 3,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 4,
+                "v_class": 5,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 3,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r20",
+      "region": 20,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_vol <> 1",
+        "c.c_vol <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol >= 3"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 5,
+              "v_class": 6,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 3,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 4,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 5,
+                "v_class": 6,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 3,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r21",
+      "region": 21,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "Is_a(None, (Option.get v).v_ref)",
+        "not (check_satisfy (Option.get v) c)",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": -1,
+              "v_class": 2,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 0,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": true,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": -1,
+                "v_class": 2,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7720,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 0,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": true,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvVolumeMismatch"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r22",
+      "region": 22,
+      "constraints": [
+        "Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class = 0"
+      ],
+      "input": {
+        "v": {
+          "$c": "None"
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "None"
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvFailedBinding"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r23",
+      "region": 23,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "Is_a(None,\n     find_best {v1 = v; v2 = None; c1 = Some c; c2 = None} c (c.c_class = 2)\n     true)",
+        "c.c_class <> 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 0",
+        "c.c_class = 0"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 1,
+                    "cr_uid": 0
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 7718,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": true,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 7719,
+          "c_class": 0,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 7718,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 1237,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 7719,
+                "c_class": 0,
+                "c_block": true,
+                "c_rwx": false,
+                "c_selector": true,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvFailedBinding"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r24",
+      "region": 24,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "not c.c_bbc",
+        "not Is_a(None, (Option.get v).v_ref)",
+        "not (bound_to_claim (Option.get v) c)",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 6
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvFailedBinding"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r25",
+      "region": 25,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "c.c_bbc",
+        "not Is_a(None, (Option.get v).v_ref)",
+        "not (bound_to_claim (Option.get v) c)",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 6
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": true,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": true,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvFailedBinding"
+          }
+        ],
+        "err": true,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r26",
+      "region": 26,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "Is_a(None, (Option.get v).v_ref)",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r27",
+      "region": 27,
+      "constraints": [
+        "not Is_a(None, v)",
+        "c.c_bc",
+        "c.c_vol <> 0",
+        "not Is_a(None, (Option.get v).v_ref)",
+        "(Option.get (Option.get v).v_ref).cr_uid = c.c_uid",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 5,
+                    "cr_uid": 39
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": true,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r28",
+      "region": 28,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "Is_a(None, (Option.get v).v_ref)",
+        "check_satisfy (Option.get v) c",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": -6483,
+              "v_class": 0,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7719,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": -6483,
+                "v_class": 0,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": -7719,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_r29",
+      "region": 29,
+      "constraints": [
+        "not Is_a(None, v)",
+        "not c.c_bc",
+        "c.c_vol <> 0",
+        "not Is_a(None, (Option.get v).v_ref)",
+        "bound_to_claim (Option.get v) c",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_class >= 0",
+        "c.c_class <= 2",
+        "(Option.get v).v_name = 1",
+        "c.c_vol = 1"
+      ],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 1,
+                    "cr_uid": 0
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 3,
+              "v_class": 4,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 2,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 2,
+                "c_class": 0,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_claim_11_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VAvailable"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 1,
+              "v_class": 3,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CLost"
+          },
+          "c_bc": true,
+          "c_bbc": true,
+          "c_req": 50,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": true,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 7
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 1,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 50,
+                "c_class": 1,
+                "c_block": true,
+                "c_rwx": true,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_claim_11_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 1,
+                    "cr_uid": 7
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": true,
+              "v_cap": 1,
+              "v_class": 3,
+              "v_block": true,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 50,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": true,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 7
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": true,
+                "v_cap": 1,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": false,
+                "c_req": 50,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": true,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_claim_11_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 1,
+                    "cr_uid": 0
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VReleased"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 100,
+              "v_class": 3,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 50,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 7
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 100,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 50,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": true,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_claim_11_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 2,
+                    "cr_uid": 8
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": true,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 100,
+              "v_class": 1,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CBound"
+          },
+          "c_bc": false,
+          "c_bbc": true,
+          "c_req": 50,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 2,
+                      "cr_uid": 8
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 100,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": false,
+                "c_bbc": true,
+                "c_req": 50,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvFailedBinding"
+          }
+        ],
+        "err": true,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_claim_11_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "Some",
+                "args": [
+                  {
+                    "cr_name": 2,
+                    "cr_uid": 7
+                  }
+                ]
+              },
+              "v_phase": {
+                "$c": "VBound"
+              },
+              "v_bbc": true,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 100,
+              "v_class": 1,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 1,
+          "c_phase": {
+            "$c": "CBound"
+          },
+          "c_bc": true,
+          "c_bbc": true,
+          "c_req": 50,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 7
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 100,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 50,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_claim_11_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "$c": "Some",
+          "args": [
+            {
+              "v_name": 1,
+              "v_ref": {
+                "$c": "None"
+              },
+              "v_phase": {
+                "$c": "VAvailable"
+              },
+              "v_bbc": false,
+              "v_dyn": false,
+              "v_policy": {
+                "$c": "Retain"
+              },
+              "v_deleting": false,
+              "v_cap": 100,
+              "v_class": 2,
+              "v_block": false,
+              "v_rwx": false,
+              "v_labeled": false
+            }
+          ]
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 50,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 100,
+                "v_class": 2,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 7,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 50,
+                "c_class": 2,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvWaitForFirstConsumer"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}

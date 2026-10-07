@@ -1,0 +1,4252 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "find_best_both",
+  "symbol": "PV binder",
+  "params": [
+    "a",
+    "b",
+    "c"
+  ],
+  "signature": "pv -> pv -> pvc -> (pv option * pv option)",
+  "model": {
+    "hash": "3cd3d70b37b73375eb3ed4541f909556cceccab4660551091e43ba4cdcbcf16e"
+  },
+  "assuming": "pre_two_rwo",
+  "vectors": [
+    {
+      "id": "find_best_both_r1",
+      "region": 1,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 37,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "None"
+          },
+          {
+            "$c": "None"
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r2",
+      "region": 2,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "not a.v_rwx",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 37,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "None"
+          },
+          {
+            "$c": "None"
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r3",
+      "region": 3,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "a.v_rwx",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 37,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "None"
+          },
+          {
+            "$c": "None"
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r4",
+      "region": 4,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 37,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "None"
+          },
+          {
+            "$c": "None"
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r5",
+      "region": 5,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "pre_ok c b",
+        "pre_ok c a",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -2399,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7719,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r6",
+      "region": 6,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "pre_ok c b",
+        "pre_ok c a",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -2399,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7719,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r7",
+      "region": 7,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap <= a.v_cap",
+        "a.v_cap <= b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 0,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 0,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -2399,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 0,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 0,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r8",
+      "region": 8,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap <= a.v_cap",
+        "a.v_cap <= b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 0,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 0,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -2399,
+          "c_class": 0,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 0,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 0,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r9",
+      "region": 9,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "a.v_rwx",
+        "pre_ok c b",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 4,
+          "v_class": 5,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1198,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r10",
+      "region": 10,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "pre_ok c b",
+        "not (pre_ok c a)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 2438,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1198,
+          "c_class": 2,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r11",
+      "region": 11,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1201,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1236,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1201,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1201,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r12",
+      "region": 12,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "pre_ok c b",
+        "not (pre_ok c a)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 2438,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1198,
+          "c_class": 2,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r13",
+      "region": 13,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "not a.v_rwx",
+        "pre_ok c b",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 2438,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1198,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 38,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r14",
+      "region": 14,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 8817,
+          "v_class": 1,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": true
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r15",
+      "region": 15,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 8817,
+          "v_class": 1,
+          "v_block": true,
+          "v_rwx": true,
+          "v_labeled": true
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r16",
+      "region": 16,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "not (pre_ok c a)",
+        "not (free_ok c (c.c_class = 2) a)",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7719,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 8817,
+          "v_class": 1,
+          "v_block": true,
+          "v_rwx": false,
+          "v_labeled": true
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": true,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 8817,
+                "v_class": 1,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r17",
+      "region": 17,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap <= a.v_cap",
+        "a.v_cap > b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1236,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1235,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7620,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1235,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1235,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r18",
+      "region": 18,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap <= a.v_cap",
+        "a.v_cap > b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1236,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1235,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7620,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1235,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1235,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r19",
+      "region": 19,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "not a.v_rwx",
+        "pre_ok c a",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1198,
+          "v_class": 5,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7720,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1198,
+                "v_class": 5,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1198,
+                "v_class": 5,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r20",
+      "region": 20,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "pre_ok c a",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7681,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": -39,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r21",
+      "region": 21,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1236,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 39,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -1201,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1236,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1236,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r22",
+      "region": 22,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "pre_ok c a",
+        "not (pre_ok c b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7681,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": -39,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r23",
+      "region": 23,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "a.v_rwx",
+        "pre_ok c a",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 7681,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": -39,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -38,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 7681,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r24",
+      "region": 24,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1136,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": true
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7719,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r25",
+      "region": 25,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1136,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": true
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7719,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r26",
+      "region": 26,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "not (free_ok c (c.c_class = 2) b)",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 1136,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": true
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 38,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": -7719,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": true,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": true
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 1136,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r27",
+      "region": 27,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "b.v_rwx",
+        "a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap > a.v_cap",
+        "a.v_cap <= b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 2437,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 2438,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 641,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 2437,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 2437,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": true,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_r28",
+      "region": 28,
+      "constraints": [
+        "not c.c_rwx",
+        "not c.c_bc",
+        "not b.v_rwx",
+        "not a.v_rwx",
+        "free_ok c (c.c_class = 2) b",
+        "free_ok c (c.c_class = 2) a",
+        "not (pre_ok c a)",
+        "not (pre_ok c b)",
+        "b.v_cap > a.v_cap",
+        "a.v_cap <= b.v_cap",
+        "a.v_name = 1",
+        "b.v_name = 2",
+        "c.c_name = 1",
+        "c.c_uid >= 1",
+        "c.c_vol = 0",
+        "c.c_class >= 0",
+        "c.c_class <= 2"
+      ],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 2437,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 2438,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 1237,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 641,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 2437,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 2437,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "find_best_both_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": true,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 5,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "find_best_both_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 20,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 5,
+          "c_class": 1,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 2,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 20,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "find_best_both_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "a": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "b": {
+          "v_name": 2,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 6,
+          "v_class": 2,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "c_name": 1,
+          "c_uid": 7,
+          "c_vol": 0,
+          "c_phase": {
+            "$c": "CPending"
+          },
+          "c_bc": false,
+          "c_bbc": false,
+          "c_req": 5,
+          "c_class": 2,
+          "c_block": false,
+          "c_rwx": false,
+          "c_selector": false,
+          "c_selnode": false
+        }
+      },
+      "expected": {
+        "$tuple": [
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          }
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}

@@ -1,0 +1,2526 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "sync_volume_11",
+  "symbol": "PV binder",
+  "params": [
+    "v",
+    "c"
+  ],
+  "signature": "pv -> pvc option -> result",
+  "model": {
+    "hash": "3cd3d70b37b73375eb3ed4541f909556cceccab4660551091e43ba4cdcbcf16e"
+  },
+  "assuming": "pre_vol_lite",
+  "vectors": [
+    {
+      "id": "sync_volume_11_r1",
+      "region": 1,
+      "constraints": [
+        "Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "v.v_name = 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 4
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 4
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r2",
+      "region": 2,
+      "constraints": [
+        "Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get v.v_ref).cr_name <> 1",
+        "v.v_name = 1",
+        "(Option.get v.v_ref).cr_name = 2"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 2,
+                "cr_uid": 5
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 2,
+                      "cr_uid": 5
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r3",
+      "region": 3,
+      "constraints": [
+        "Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get v.v_ref).cr_name <> 1",
+        "(Option.get v.v_ref).cr_name <> 2",
+        "v.v_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 5,
+                "cr_uid": 6
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r4",
+      "region": 4,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get v.v_ref).cr_name <> 1",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 2"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 2,
+                "cr_uid": 5
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 6,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 7,
+              "c_class": 8,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 2,
+                      "cr_uid": 5
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 6,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 7,
+                "c_class": 8,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r5",
+      "region": 5,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get v.v_ref).cr_name <> 1",
+        "(Option.get v.v_ref).cr_name <> 2",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 5,
+                "cr_uid": 6
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 3,
+          "v_class": 4,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 7,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 8,
+              "c_class": 9,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 5,
+                      "cr_uid": 6
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 3,
+                "v_class": 4,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 7,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 8,
+                "c_class": 9,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r6",
+      "region": 6,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get c).c_uid <> (Option.get v.v_ref).cr_uid",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 4
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 5,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 6,
+              "c_class": 7,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 4
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 5,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 6,
+                "c_class": 7,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r7",
+      "region": 7,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "v.v_dyn",
+        "v.v_policy = Delete",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "(Option.get c).c_vol <> 0",
+        "(Option.get c).c_vol <> v.v_name",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": true,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 4,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 5,
+              "c_class": 6,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": true,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 4,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 5,
+                "c_class": 6,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r8",
+      "region": 8,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "not v.v_dyn",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "(Option.get c).c_vol <> 0",
+        "(Option.get c).c_vol <> v.v_name",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 4,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 5,
+              "c_class": 6,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 4,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 5,
+                "c_class": 6,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r9",
+      "region": 9,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "v.v_dyn",
+        "v.v_policy <> Delete",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "(Option.get c).c_vol <> 0",
+        "(Option.get c).c_vol <> v.v_name",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": true,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 4,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 5,
+              "c_class": 6,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": true,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 4,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 5,
+                "c_class": 6,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r10",
+      "region": 10,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "mode_mismatch (Option.get c) v",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1",
+        "(Option.get c).c_vol = 0"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": true,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 0,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 4,
+              "c_class": 5,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": true,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 5,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [
+          {
+            "$c": "EvVolumeMismatch"
+          },
+          {
+            "$c": "EvVolumeMismatch"
+          }
+        ],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r11",
+      "region": 11,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "not (mode_mismatch (Option.get c) v)",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1",
+        "(Option.get c).c_vol = 0"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 0,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 4,
+              "c_class": 5,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 5,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": true
+      }
+    },
+    {
+      "id": "sync_volume_11_r12",
+      "region": 12,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "(Option.get v.v_ref).cr_uid <> 0",
+        "(Option.get c).c_uid = (Option.get v.v_ref).cr_uid",
+        "(Option.get c).c_vol <> 0",
+        "(Option.get c).c_vol = v.v_name",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 39
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 1,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 4,
+              "c_class": 5,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 39
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VBound"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 1,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 5,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r13",
+      "region": 13,
+      "constraints": [
+        "Is_a(None, c)",
+        "Is_a(None, v.v_ref)",
+        "v.v_name = 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 0,
+          "v_class": 2,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 0,
+                "v_class": 2,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r14",
+      "region": 14,
+      "constraints": [
+        "Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "v.v_name = 1",
+        "(Option.get v.v_ref).cr_uid = 0"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 4,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 4,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r15",
+      "region": 15,
+      "constraints": [
+        "not Is_a(None, c)",
+        "Is_a(None, v.v_ref)",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 0,
+          "v_class": 2,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 3,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 4,
+              "c_class": 5,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 0,
+                "v_class": 2,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 3,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 4,
+                "c_class": 5,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_r16",
+      "region": 16,
+      "constraints": [
+        "not Is_a(None, c)",
+        "not Is_a(None, v.v_ref)",
+        "v.v_name = 1",
+        "(Option.get c).c_name = 1",
+        "(Option.get c).c_uid >= 1",
+        "(Option.get v.v_ref).cr_uid = 0"
+      ],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 7,
+                "cr_uid": 0
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VAvailable"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 2,
+          "v_class": 3,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 39,
+              "c_vol": 4,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 5,
+              "c_class": 6,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 7,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 2,
+                "v_class": 3,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 39,
+                "c_vol": 4,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 5,
+                "c_class": 6,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      }
+    },
+    {
+      "id": "sync_volume_11_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 4
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": true,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 4
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": true,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_volume_11_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "None"
+          },
+          "v_phase": {
+            "$c": "VReleased"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_volume_11_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 9
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VFailed"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 9,
+              "c_vol": 2,
+              "c_phase": {
+                "$c": "CBound"
+              },
+              "c_bc": true,
+              "c_bbc": true,
+              "c_req": 5,
+              "c_class": 1,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 0
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 9,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 5,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_volume_11_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 9
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VBound"
+          },
+          "v_bbc": true,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Retain"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 9,
+              "c_vol": 2,
+              "c_phase": {
+                "$c": "CBound"
+              },
+              "c_bc": true,
+              "c_bbc": true,
+              "c_req": 5,
+              "c_class": 1,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "None"
+                },
+                "v_phase": {
+                  "$c": "VAvailable"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Retain"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 9,
+                "c_vol": 2,
+                "c_phase": {
+                  "$c": "CBound"
+                },
+                "c_bc": true,
+                "c_bbc": true,
+                "c_req": 5,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "NoOp"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_volume_11_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 9
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VBound"
+          },
+          "v_bbc": false,
+          "v_dyn": false,
+          "v_policy": {
+            "$c": "Recycle"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "None"
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 9
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": false,
+                "v_policy": {
+                  "$c": "Recycle"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "None"
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpRecycle"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "sync_volume_11_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "v": {
+          "v_name": 1,
+          "v_ref": {
+            "$c": "Some",
+            "args": [
+              {
+                "cr_name": 1,
+                "cr_uid": 9
+              }
+            ]
+          },
+          "v_phase": {
+            "$c": "VPending"
+          },
+          "v_bbc": false,
+          "v_dyn": true,
+          "v_policy": {
+            "$c": "Delete"
+          },
+          "v_deleting": false,
+          "v_cap": 10,
+          "v_class": 1,
+          "v_block": false,
+          "v_rwx": false,
+          "v_labeled": false
+        },
+        "c": {
+          "$c": "Some",
+          "args": [
+            {
+              "c_name": 1,
+              "c_uid": 8,
+              "c_vol": 0,
+              "c_phase": {
+                "$c": "CPending"
+              },
+              "c_bc": false,
+              "c_bbc": false,
+              "c_req": 5,
+              "c_class": 1,
+              "c_block": false,
+              "c_rwx": false,
+              "c_selector": false,
+              "c_selnode": false
+            }
+          ]
+        }
+      },
+      "expected": {
+        "w": {
+          "v1": {
+            "$c": "Some",
+            "args": [
+              {
+                "v_name": 1,
+                "v_ref": {
+                  "$c": "Some",
+                  "args": [
+                    {
+                      "cr_name": 1,
+                      "cr_uid": 9
+                    }
+                  ]
+                },
+                "v_phase": {
+                  "$c": "VReleased"
+                },
+                "v_bbc": false,
+                "v_dyn": true,
+                "v_policy": {
+                  "$c": "Delete"
+                },
+                "v_deleting": false,
+                "v_cap": 10,
+                "v_class": 1,
+                "v_block": false,
+                "v_rwx": false,
+                "v_labeled": false
+              }
+            ]
+          },
+          "v2": {
+            "$c": "None"
+          },
+          "c1": {
+            "$c": "Some",
+            "args": [
+              {
+                "c_name": 1,
+                "c_uid": 8,
+                "c_vol": 0,
+                "c_phase": {
+                  "$c": "CPending"
+                },
+                "c_bc": false,
+                "c_bbc": false,
+                "c_req": 5,
+                "c_class": 1,
+                "c_block": false,
+                "c_rwx": false,
+                "c_selector": false,
+                "c_selnode": false
+              }
+            ]
+          },
+          "c2": {
+            "$c": "None"
+          }
+        },
+        "events": [],
+        "err": false,
+        "op": {
+          "$c": "OpDelete"
+        },
+        "enq": false
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": []
+}
