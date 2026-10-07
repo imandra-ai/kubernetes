@@ -6,7 +6,7 @@
   "symbol": "RBAC rule matching",
   "params": ["urls", "url"],
   "signature": "int list list -> int list -> bool",
-  "model": {"hash": "06ad4bda7c2649804e8a4e9c87c5df473d033ac5ee80647a40a29599bc3e252e"},
+  "model": {"hash": "edf6b1aa4eb831d67df2b0f36db51e72f875bcd463e15f3e8fda8582e0bae9f4"},
   "assuming": null,
   "vectors": [
     {"id": "non_resource_url_matches_r1", "region": 1, "constraints": ["urls <> []", "List.hd urls = [42]"], "input": {"urls": [[42]], "url": []}, "expected": true},
