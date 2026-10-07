@@ -145,22 +145,29 @@ type gVector struct {
 	Expected json.RawMessage            `json:"expected"`
 }
 
-func loadGroundsVectors(t *testing.T, file string) []gVector {
+// loadGroundsVectors reads the region vectors (<name>.vectors.json, kept as
+// generated) and the vectors at hand-picked counterexample inputs
+// (<name>.chosen.json, expected values still computed by the model).
+func loadGroundsVectors(t *testing.T, name string) []gVector {
 	t.Helper()
-	data, err := os.ReadFile(filepath.Join(groundsVectorDir, file))
-	if err != nil {
-		t.Fatalf("reading vectors %s: %v", file, err)
+	var all []gVector
+	for _, file := range []string{name + ".vectors.json", name + ".chosen.json"} {
+		data, err := os.ReadFile(filepath.Join(groundsVectorDir, file))
+		if err != nil {
+			t.Fatalf("reading vectors %s: %v", file, err)
+		}
+		var f struct {
+			Vectors []gVector `json:"vectors"`
+		}
+		if err := json.Unmarshal(data, &f); err != nil {
+			t.Fatalf("parsing vectors %s: %v", file, err)
+		}
+		if len(f.Vectors) == 0 {
+			t.Fatalf("no vectors in %s", file)
+		}
+		all = append(all, f.Vectors...)
 	}
-	var f struct {
-		Vectors []gVector `json:"vectors"`
-	}
-	if err := json.Unmarshal(data, &f); err != nil {
-		t.Fatalf("parsing vectors %s: %v", file, err)
-	}
-	if len(f.Vectors) == 0 {
-		t.Fatalf("no vectors in %s", file)
-	}
-	return f.Vectors
+	return all
 }
 
 func mustJSON(t *testing.T, raw json.RawMessage, into interface{}) {
@@ -573,7 +580,7 @@ func compareGrounds(t *testing.T, want, got gResult) {
 }
 
 func TestGroundsConformanceSyncClaim(t *testing.T) {
-	for _, vec := range loadGroundsVectors(t, "sync_claim_11.vectors.json") {
+	for _, vec := range loadGroundsVectors(t, "sync_claim_11") {
 		t.Run(vec.ID, func(t *testing.T) {
 			c := decodePVC(t, vec.Input["c"])
 			w := gWorld{V1: decodeOptPV(t, vec.Input["v"]), C1: c}
@@ -585,7 +592,7 @@ func TestGroundsConformanceSyncClaim(t *testing.T) {
 }
 
 func TestGroundsConformanceSyncVolume(t *testing.T) {
-	for _, vec := range loadGroundsVectors(t, "sync_volume_11.vectors.json") {
+	for _, vec := range loadGroundsVectors(t, "sync_volume_11") {
 		t.Run(vec.ID, func(t *testing.T) {
 			v := decodePV(t, vec.Input["v"])
 			w := gWorld{V1: v, C1: decodeOptPVC(t, vec.Input["c"])}
@@ -601,7 +608,7 @@ func TestGroundsConformanceSyncVolume(t *testing.T) {
 // order, and every run of the code must produce one of them.
 func TestGroundsConformanceFindBestMatch(t *testing.T) {
 	const runs = 30
-	for _, vec := range loadGroundsVectors(t, "find_best_both.vectors.json") {
+	for _, vec := range loadGroundsVectors(t, "find_best_both") {
 		t.Run(vec.ID, func(t *testing.T) {
 			a, b, c := decodePV(t, vec.Input["a"]), decodePV(t, vec.Input["b"]), decodePVC(t, vec.Input["c"])
 			var tuple struct {
