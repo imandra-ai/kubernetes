@@ -1,0 +1,21 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "resource_name_matches",
+  "symbol": "RBAC rule matching",
+  "params": ["names", "n"],
+  "signature": "int list list -> int list -> bool",
+  "model": {"hash": "06ad4bda7c2649804e8a4e9c87c5df473d033ac5ee80647a40a29599bc3e252e"},
+  "assuming": null,
+  "vectors": [
+    {"id": "resource_name_matches_r1", "region": 1, "constraints": ["names <> []"], "input": {"names": [[]], "n": []}, "expected": true},
+    {"id": "resource_name_matches_r2", "region": 2, "constraints": ["names = []"], "input": {"names": [], "n": []}, "expected": true},
+    {"id": "resource_name_matches_c1", "region": null, "constraints": [], "input": {"names": [[]], "n": []}, "expected": true, "why": "chosen"},
+    {"id": "resource_name_matches_c2", "region": null, "constraints": [], "input": {"names": [[102, 111, 111]], "n": []}, "expected": false, "why": "chosen"},
+    {"id": "resource_name_matches_c3", "region": null, "constraints": [], "input": {"names": [], "n": [120]}, "expected": true, "why": "chosen"},
+    {"id": "resource_name_matches_c4", "region": null, "constraints": [], "input": {"names": [[102, 111, 111], [98, 97, 114]], "n": [98, 97, 114]}, "expected": true, "why": "chosen"},
+    {"id": "resource_name_matches_c5", "region": null, "constraints": [], "input": {"names": [[42]], "n": [102, 111, 111]}, "expected": false, "why": "chosen"}
+  ],
+  "without": []
+}

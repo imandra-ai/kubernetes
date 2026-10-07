@@ -1,0 +1,22 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "api_group_matches",
+  "symbol": "RBAC rule matching",
+  "params": ["groups", "g"],
+  "signature": "int list list -> int list -> bool",
+  "model": {"hash": "06ad4bda7c2649804e8a4e9c87c5df473d033ac5ee80647a40a29599bc3e252e"},
+  "assuming": null,
+  "vectors": [
+    {"id": "api_group_matches_r1", "region": 1, "constraints": ["groups = []"], "input": {"groups": [], "g": []}, "expected": false},
+    {"id": "api_group_matches_r2", "region": 2, "constraints": ["groups <> []", "List.hd groups <> [42]", "List.hd groups <> g"], "input": {"groups": [[]], "g": [0]}, "expected": false},
+    {"id": "api_group_matches_r3", "region": 3, "constraints": ["List.hd groups = g", "groups <> []", "List.hd groups <> [42]"], "input": {"groups": [[]], "g": []}, "expected": true},
+    {"id": "api_group_matches_r4", "region": 4, "constraints": ["groups <> []", "List.hd groups = [42]"], "input": {"groups": [[42]], "g": []}, "expected": true},
+    {"id": "api_group_matches_c1", "region": null, "constraints": [], "input": {"groups": [[]], "g": []}, "expected": true, "why": "chosen"},
+    {"id": "api_group_matches_c2", "region": null, "constraints": [], "input": {"groups": [[42]], "g": [97, 112, 112, 115]}, "expected": true, "why": "chosen"},
+    {"id": "api_group_matches_c3", "region": null, "constraints": [], "input": {"groups": [[]], "g": [97, 112, 112, 115]}, "expected": false, "why": "chosen"},
+    {"id": "api_group_matches_c4", "region": null, "constraints": [], "input": {"groups": [[97, 112, 112, 115]], "g": []}, "expected": false, "why": "chosen"}
+  ],
+  "without": []
+}
