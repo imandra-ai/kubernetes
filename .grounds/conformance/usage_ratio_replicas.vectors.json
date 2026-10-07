@@ -1,0 +1,28 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "usage_ratio_replicas",
+  "symbol": "HPA replica count decision",
+  "params": ["current", "ratio", "tol_down", "tol_up", "ready"],
+  "signature": "int -> real -> real -> real -> int -> int",
+  "model": {"hash": "10d1df4c78d49c8e17f510f030743682547a6a77eab7536813a0dcd4ed2d4226"},
+  "assuming": "ur_domain",
+  "vectors": [
+    {"id": "usage_ratio_replicas_r1", "region": 1, "constraints": ["current <> 0", "ratio <=. 1.0 +. tol_up", "(-1.0) *. tol_down <=. (-1.0) +. ratio", "current >= 1", "current <= 100", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3"], "input": {"current": 1, "ratio": {"$real": "0/1"}, "tol_down": {"$real": "1/1"}, "tol_up": {"$real": "0/1"}, "ready": 0}, "expected": 1},
+    {"id": "usage_ratio_replicas_r2", "region": 2, "constraints": ["ratio <=. Real.of_int (Real._to_int_round_down ratio)", "current = 0", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3"], "input": {"current": 0, "ratio": {"$real": "0/1"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 0}, "expected": 0},
+    {"id": "usage_ratio_replicas_r3", "region": 3, "constraints": ["current <> 0", "(-1.0) *. tol_down >. (-1.0) +. ratio", "mul_r ratio ready\n<=. Real.of_int (Real._to_int_round_down (mul_r ratio ready))", "current >= 1", "current <= 100", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3", "mul_r ratio ready >=. 0.0", "mul_r ratio ready <. 2147483648.0"], "input": {"current": 1, "ratio": {"$real": "0/1"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 0}, "expected": 0},
+    {"id": "usage_ratio_replicas_r4", "region": 4, "constraints": ["current <> 0", "(-1.0) *. tol_down <=. (-1.0) +. ratio", "ratio >. 1.0 +. tol_up", "mul_r ratio ready\n<=. Real.of_int (Real._to_int_round_down (mul_r ratio ready))", "current >= 1", "current <= 100", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3", "mul_r ratio ready >=. 0.0", "mul_r ratio ready <. 2147483648.0"], "input": {"current": 1, "ratio": {"$real": "2/1"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 0}, "expected": 0},
+    {"id": "usage_ratio_replicas_r5", "region": 5, "constraints": ["ratio >. Real.of_int (Real._to_int_round_down ratio)", "current = 0", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3"], "input": {"current": 0, "ratio": {"$real": "1/2"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 0}, "expected": 1},
+    {"id": "usage_ratio_replicas_r6", "region": 6, "constraints": ["current <> 0", "(-1.0) *. tol_down >. (-1.0) +. ratio", "mul_r ratio ready\n>. Real.of_int (Real._to_int_round_down (mul_r ratio ready))", "current >= 1", "current <= 100", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3", "mul_r ratio ready >=. 0.0", "mul_r ratio ready <. 2147483647.0"], "input": {"current": 1, "ratio": {"$real": "1/2"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 1}, "expected": 1},
+    {"id": "usage_ratio_replicas_r7", "region": 7, "constraints": ["current <> 0", "(-1.0) *. tol_down <=. (-1.0) +. ratio", "ratio >. 1.0 +. tol_up", "mul_r ratio ready\n>. Real.of_int (Real._to_int_round_down (mul_r ratio ready))", "current >= 1", "current <= 100", "ratio >=. 0.0", "ratio <=. 100.0", "tol_down >=. 0.0", "tol_down <=. 1.0", "tol_up >=. 0.0", "tol_up <=. 1.0", "ready >= 0", "ready <= 3", "mul_r ratio ready >=. 0.0", "mul_r ratio ready <. 2147483647.0"], "input": {"current": 1, "ratio": {"$real": "3/2"}, "tol_down": {"$real": "0/1"}, "tol_up": {"$real": "0/1"}, "ready": 1}, "expected": 2},
+    {"id": "usage_ratio_replicas_c1", "region": null, "constraints": [], "input": {"current": 1, "ratio": {"$real": "2"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 0}, "expected": 0, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c2", "region": null, "constraints": [], "input": {"current": 10, "ratio": {"$real": "5"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 0}, "expected": 0, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c3", "region": null, "constraints": [], "input": {"current": 10, "ratio": {"$real": "2"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 3}, "expected": 6, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c4", "region": null, "constraints": [], "input": {"current": 0, "ratio": {"$real": "3/10"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 0}, "expected": 1, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c5", "region": null, "constraints": [], "input": {"current": 0, "ratio": {"$real": "0"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 0}, "expected": 0, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c6", "region": null, "constraints": [], "input": {"current": 25, "ratio": {"$real": "7/25"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 25}, "expected": 7, "why": "chosen"},
+    {"id": "usage_ratio_replicas_c7", "region": null, "constraints": [], "input": {"current": 4, "ratio": {"$real": "1/2"}, "tol_down": {"$real": "1/10"}, "tol_up": {"$real": "1/10"}, "ready": 10}, "expected": 5, "why": "chosen"}
+  ],
+  "without": []
+}

@@ -1,0 +1,25 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "rules_normalize",
+  "symbol": "HPA replica count decision",
+  "params": ["current", "desired", "minr", "maxr"],
+  "signature": "int -> int -> int -> int -> int",
+  "model": {"hash": "620d3376cf199fb73df3723140c62f44ff58e6d2e674a791f909c4944f073c4d"},
+  "assuming": "rules_domain",
+  "vectors": [
+    {"id": "rules_normalize_r1", "region": 1, "constraints": ["minr <= desired", "desired <= maxr", "minr <= maxr", "current <= maxr", "maxr <= 2 * current", "maxr >= 1", "current >= 3", "desired >= 0", "minr >= 0"], "input": {"current": 3, "desired": 0, "minr": 0, "maxr": 3}, "expected": 0},
+    {"id": "rules_normalize_r2", "region": 2, "constraints": ["minr <= desired", "minr <= maxr", "current <= maxr", "maxr >= 5", "current >= 0", "current <= 2", "desired >= 0", "desired <= 4", "minr >= 0"], "input": {"current": 0, "desired": 0, "minr": 0, "maxr": 5}, "expected": 0},
+    {"id": "rules_normalize_r3", "region": 3, "constraints": ["minr <= desired", "minr <= maxr", "current <= maxr", "maxr > 2 * current", "desired <= 2 * current", "maxr >= 1", "current >= 3", "desired >= 0", "minr >= 0"], "input": {"current": 3, "desired": 0, "minr": 0, "maxr": 7}, "expected": 0},
+    {"id": "rules_normalize_r4", "region": 4, "constraints": ["minr <= desired", "desired <= maxr", "minr <= maxr", "current <= maxr", "maxr >= 1", "maxr <= 4", "current >= 0", "current <= 2", "desired >= 0", "minr >= 0"], "input": {"current": 0, "desired": 0, "minr": 0, "maxr": 1}, "expected": 0},
+    {"id": "rules_normalize_r5", "region": 5, "constraints": ["minr > desired", "minr <= maxr", "current <= maxr", "maxr >= 1", "current >= 0", "desired >= 0", "minr >= 0"], "input": {"current": 0, "desired": 0, "minr": 1, "maxr": 1}, "expected": 1},
+    {"id": "rules_normalize_r6", "region": 6, "constraints": ["minr <= desired", "desired > maxr", "minr <= maxr", "current <= maxr", "maxr <= 2 * current", "maxr >= 1", "current >= 3", "desired >= 0", "minr >= 0"], "input": {"current": 3, "desired": 4, "minr": 0, "maxr": 3}, "expected": 3},
+    {"id": "rules_normalize_r7", "region": 7, "constraints": ["minr <= desired", "desired > maxr", "minr <= maxr", "current <= maxr", "maxr >= 1", "maxr <= 4", "current >= 0", "current <= 2", "desired >= 0", "minr >= 0"], "input": {"current": 0, "desired": 2, "minr": 0, "maxr": 1}, "expected": 1},
+    {"id": "rules_normalize_r8", "region": 8, "constraints": ["minr <= desired", "minr <= maxr", "current <= maxr", "maxr >= 5", "current >= 0", "current <= 2", "desired >= 5", "minr >= 0"], "input": {"current": 0, "desired": 5, "minr": 0, "maxr": 5}, "expected": 4},
+    {"id": "rules_normalize_r9", "region": 9, "constraints": ["minr <= desired", "minr <= maxr", "current <= maxr", "maxr > 2 * current", "desired > 2 * current", "maxr >= 1", "current >= 3", "desired >= 0", "minr >= 0"], "input": {"current": 3, "desired": 7, "minr": 0, "maxr": 7}, "expected": 6},
+    {"id": "rules_normalize_c1", "region": null, "constraints": [], "input": {"current": 0, "desired": 43, "minr": 5, "maxr": 1241}, "expected": 4, "why": "chosen"},
+    {"id": "rules_normalize_c2", "region": null, "constraints": [], "input": {"current": 1, "desired": 100, "minr": 1, "maxr": 100}, "expected": 4, "why": "chosen"}
+  ],
+  "without": []
+}

@@ -1,0 +1,544 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "plain_replicas",
+  "symbol": "HPA replica count decision",
+  "params": [
+    "current",
+    "target",
+    "tol_down",
+    "tol_up",
+    "n_ready",
+    "sum_ready",
+    "n_unready",
+    "n_missing"
+  ],
+  "signature": "int -> int -> real -> real -> int -> int -> int -> int -> result",
+  "model": {
+    "hash": "2d5e2d52c2024c26c191e9c9e6c4d63ba01e5232467e477e6072183d7d502e21"
+  },
+  "assuming": "plain_signs",
+  "vectors": [
+    {
+      "id": "plain_replicas_c1",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 10,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 3,
+        "sum_ready": 600,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          6
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c2",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 10,
+        "sum_ready": 500,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c3",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 25,
+        "target": 50,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 25,
+        "sum_ready": 350,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          7
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c4",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 50,
+        "target": 80,
+        "tol_down": {
+          "$real": "1/20"
+        },
+        "tol_up": {
+          "$real": "1/20"
+        },
+        "n_ready": 50,
+        "sum_ready": 4400,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          55
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c5",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 10,
+        "target": 100,
+        "tol_down": {
+          "$real": "7/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 10,
+        "sum_ready": 300,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          10
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c6",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 10,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "9/25"
+        },
+        "n_ready": 10,
+        "sum_ready": 1360,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          10
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c7",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 10,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 10,
+        "sum_ready": 1100,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          10
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c8",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 10,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 10,
+        "sum_ready": 900,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          10
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c9",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 5,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 3,
+        "sum_ready": 300,
+        "n_unready": 0,
+        "n_missing": 2
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          5
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c10",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 4,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 2,
+        "sum_ready": 400,
+        "n_unready": 2,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          4
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c11",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 3,
+        "sum_ready": 900,
+        "n_unready": 1,
+        "n_missing": 2
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          9
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c12",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 6,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 4,
+        "sum_ready": 100,
+        "n_unready": 0,
+        "n_missing": 2
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          3
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c13",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "target": 100,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 1,
+        "sum_ready": 0,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          0
+        ]
+      },
+      "why": "chosen"
+    },
+    {
+      "id": "plain_replicas_c14",
+      "region": null,
+      "constraints": [],
+      "input": {
+        "current": 3,
+        "target": 1,
+        "tol_down": {
+          "$real": "1/10"
+        },
+        "tol_up": {
+          "$real": "1/10"
+        },
+        "n_ready": 3,
+        "sum_ready": 9000000000000,
+        "n_unready": 0,
+        "n_missing": 0
+      },
+      "expected": {
+        "$c": "Ok",
+        "args": [
+          2147483647
+        ]
+      },
+      "why": "chosen"
+    }
+  ],
+  "without": [
+    {"region": 1, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 2, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 3, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 4, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 5, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 6, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 7, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 8, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 9, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 10, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 11, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 12, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 13, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 14, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 15, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 16, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 17, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 18, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 19, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 20, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 21, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 22, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 23, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 24, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 25, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 26, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 27, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 28, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 29, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 30, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 31, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 32, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 33, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 34, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 35, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 36, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 37, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 38, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 39, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 40, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 41, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 42, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 43, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 44, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 45, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 46, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 47, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 48, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 49, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 50, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 51, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 52, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 53, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 54, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 55, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 56, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 57, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 58, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 59, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 60, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 61, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 62, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 63, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 64, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 65, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 66, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 67, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 68, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 69, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 70, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 71, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 72, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 73, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 74, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 75, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 76, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 77, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 78, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 79, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 80, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 81, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 82, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 83, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 84, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 85, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 86, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 87, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 88, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 89, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 90, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 91, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 92, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 93, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 94, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 95, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 96, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 97, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 98, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 99, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 100, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 101, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 102, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 103, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 104, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 105, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 106, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 107, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 108, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 109, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 110, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 111, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 112, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 113, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 114, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 115, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 116, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 117, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 118, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 119, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 120, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 121, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 122, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 123, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 124, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 125, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 126, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 127, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 128, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 129, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 130, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 131, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 132, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 133, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 134, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 135, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 136, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 137, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 138, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 139, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 140, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 141, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 142, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 143, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 144, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 145, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 146, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 147, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 148, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 149, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 150, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 151, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 152, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 153, "why": "ImandraX gave no sample point for it - its feasibility is undecided"},
+    {"region": 154, "why": "ImandraX gave no sample point for it - its feasibility is undecided"}
+  ]
+}

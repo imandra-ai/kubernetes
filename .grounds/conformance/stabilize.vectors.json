@@ -1,0 +1,25 @@
+{
+  "format": "grounds-vectors/1",
+  "technique": "regions",
+  "engine": "imandrax",
+  "function": "stabilize",
+  "symbol": "HPA replica count decision",
+  "params": ["current", "desired", "up_w", "down_w", "recs"],
+  "signature": "int -> int -> int -> int -> recommendation list -> int",
+  "model": {"hash": "620d3376cf199fb73df3723140c62f44ff58e6d2e674a791f909c4944f073c4d"},
+  "assuming": "stab_domain",
+  "vectors": [
+    {"id": "stabilize_r1", "region": 1, "constraints": ["min_in_window up_w desired recs <= current", "current <= max_in_window down_w desired recs", "List.for_all $lambda recs", "current >= 0", "desired >= 0", "up_w >= 0", "down_w >= 0", "List.length recs <= 3"], "input": {"current": 0, "desired": 0, "up_w": 38, "down_w": 7719, "recs": []}, "expected": 0},
+    {"id": "stabilize_r2", "region": 2, "constraints": ["min_in_window up_w desired recs > current", "min_in_window up_w desired recs <= max_in_window down_w desired recs", "List.for_all $lambda recs", "current >= 0", "desired >= 0", "up_w >= 0", "down_w >= 0", "List.length recs <= 3"], "input": {"current": 0, "desired": 1, "up_w": 38, "down_w": 7719, "recs": []}, "expected": 1},
+    {"id": "stabilize_r3", "region": 3, "constraints": ["min_in_window up_w desired recs <= current", "current > max_in_window down_w desired recs", "List.for_all $lambda recs", "current >= 0", "desired >= 0", "up_w >= 0", "down_w >= 0", "List.length recs <= 3"], "input": {"current": 1, "desired": 0, "up_w": 38, "down_w": 7719, "recs": []}, "expected": 0},
+    {"id": "stabilize_c1", "region": null, "constraints": [], "input": {"current": 10, "desired": 5, "up_w": 0, "down_w": 300, "recs": [{"rec_replicas": 8, "rec_age": 100}, {"rec_replicas": 12, "rec_age": 299}, {"rec_replicas": 20, "rec_age": 300}]}, "expected": 10, "why": "chosen"},
+    {"id": "stabilize_c2", "region": null, "constraints": [], "input": {"current": 15, "desired": 5, "up_w": 0, "down_w": 300, "recs": [{"rec_replicas": 8, "rec_age": 100}, {"rec_replicas": 12, "rec_age": 299}, {"rec_replicas": 20, "rec_age": 300}]}, "expected": 12, "why": "chosen"},
+    {"id": "stabilize_c3", "region": null, "constraints": [], "input": {"current": 3, "desired": 10, "up_w": 60, "down_w": 300, "recs": [{"rec_replicas": 6, "rec_age": 30}, {"rec_replicas": 4, "rec_age": 61}]}, "expected": 6, "why": "chosen"},
+    {"id": "stabilize_c4", "region": null, "constraints": [], "input": {"current": 3, "desired": 10, "up_w": 0, "down_w": 0, "recs": [{"rec_replicas": 1, "rec_age": 0}]}, "expected": 10, "why": "chosen"},
+    {"id": "stabilize_c5", "region": null, "constraints": [], "input": {"current": 10, "desired": 2, "up_w": 0, "down_w": 300, "recs": [{"rec_replicas": 50, "rec_age": 301}]}, "expected": 2, "why": "chosen"},
+    {"id": "stabilize_c6", "region": null, "constraints": [], "input": {"current": 10, "desired": 20, "up_w": 120, "down_w": 0, "recs": [{"rec_replicas": 15, "rec_age": 119}, {"rec_replicas": 5, "rec_age": 120}]}, "expected": 15, "why": "chosen"}
+  ],
+  "without": [
+    {"region": 4, "why": "ImandraX gave no sample point for it - its feasibility is undecided"}
+  ]
+}
