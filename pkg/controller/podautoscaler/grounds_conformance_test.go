@@ -58,9 +58,9 @@ type groundsVectorsFile struct {
 	Vectors  []groundsVector `json:"vectors"`
 }
 
-func loadGroundsVectors(t *testing.T, name string) groundsVectorsFile {
+func loadGroundsVectors(t *testing.T, file, name string) groundsVectorsFile {
 	t.Helper()
-	path := filepath.Join(groundsVectorsDir, name+".vectors.json")
+	path := filepath.Join(groundsVectorsDir, file)
 	raw, err := os.ReadFile(path)
 	if err != nil {
 		t.Fatalf("reading %s: %v", path, err)
@@ -266,7 +266,7 @@ func newGroundsController() *HorizontalController {
 
 func TestGroundsConformance(t *testing.T) {
 	t.Run("plain_replicas", func(t *testing.T) {
-		f := loadGroundsVectors(t, "plain_replicas")
+		f := loadGroundsVectors(t, "plain_replicas.vectors.json", "plain_replicas")
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
 				in := v.Input
@@ -294,7 +294,7 @@ func TestGroundsConformance(t *testing.T) {
 	})
 
 	t.Run("usage_ratio_replicas", func(t *testing.T) {
-		f := loadGroundsVectors(t, "usage_ratio_replicas")
+		f := loadGroundsVectors(t, "usage_ratio_replicas.vectors.json", "usage_ratio_replicas")
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
 				in := v.Input
@@ -319,7 +319,7 @@ func TestGroundsConformance(t *testing.T) {
 	})
 
 	t.Run("rules_normalize", func(t *testing.T) {
-		f := loadGroundsVectors(t, "rules_normalize")
+		f := loadGroundsVectors(t, "rules_normalize.vectors.json", "rules_normalize")
 		// this package's test init() raises the factor to 8; the model encodes production's 2
 		saved := scaleUpLimitFactor
 		scaleUpLimitFactor = 2.0
@@ -336,7 +336,7 @@ func TestGroundsConformance(t *testing.T) {
 	})
 
 	t.Run("rate_limit_core", func(t *testing.T) {
-		f := loadGroundsVectors(t, "rate_limit_core")
+		f := loadGroundsVectors(t, "rate_limit_core.vectors.json", "rate_limit_core")
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
 				in := v.Input
@@ -361,7 +361,7 @@ func TestGroundsConformance(t *testing.T) {
 	})
 
 	t.Run("rate_limit", func(t *testing.T) {
-		f := loadGroundsVectors(t, "rate_limit")
+		f := loadGroundsVectors(t, "rate_limit.vectors.json", "rate_limit")
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
 				in := v.Input
@@ -385,7 +385,7 @@ func TestGroundsConformance(t *testing.T) {
 	})
 
 	t.Run("stabilize", func(t *testing.T) {
-		f := loadGroundsVectors(t, "stabilize")
+		f := loadGroundsVectors(t, "stabilize.vectors.json", "stabilize")
 		for _, v := range f.Vectors {
 			t.Run(v.ID, func(t *testing.T) {
 				in := v.Input
